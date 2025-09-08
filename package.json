@@ -13,6 +13,7 @@
     "lint": "next lint",
     "build:cf": "next build",
     "preview:cf": "wrangler pages dev ./out",
+    "deploy": "wrangler deploy --assets ./out",
     "deploy:cf": "wrangler pages deploy ./out --project-name=ergodicityadvantage",
     "deploy:production": "npm run build && wrangler pages deploy ./out --project-name=ergodicityadvantage --branch=main",
     "pages:deploy": "wrangler pages deploy ./out --project-name=ergodicityadvantage"
