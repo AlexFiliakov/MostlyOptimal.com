@@ -1,0 +1,36 @@
+name = "ergodicityadvantage"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = ".vercel/output/static"
+
+# Production environment configuration
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+# Staging environment configuration  
+[env.staging]
+vars = { ENVIRONMENT = "staging" }
+
+# Site configuration
+[site]
+bucket = "./out"
+
+# Build configuration for Next.js
+[build]
+command = "npm run build"
+
+# Define routes and redirects if needed
+[[routes]]
+pattern = "/*"
+zone_name = "ergodicityadvantage.com"
+
+# Advanced settings
+[placement]
+mode = "smart"
+
+# Browser rendering for dynamic content
+[browser]
+browser = { }
+
+# Deployment settings
+[deployment]
+excludes = ["node_modules", ".git", ".next/cache"]

@@ -10,7 +10,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "preview": "npm run pages:build && wrangler pages dev",
+    "deploy": "npm run pages:build && wrangler pages deploy",
+    "cf:dev": "wrangler pages dev --compatibility-date=2024-12-01",
+    "cf:deploy": "wrangler pages deploy --project-name=ergodicityadvantage"
   },
   "repository": {
     "type": "git",
@@ -37,5 +42,9 @@
     "react-intersection-observer": "^9.16.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
+    "wrangler": "^4.34.0"
   }
 }
