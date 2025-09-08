@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-pure-white">
       {/* Background Parallax Layer */}
-      <motion.div 
+      {/* <motion.div 
         className="fixed w-full h-[150vh] z-0"
         style={{ y: bgY }}
       >
@@ -90,7 +90,7 @@ export default function Home() {
           priority
           sizes="100vw"
         />
-      </motion.div>
+      </motion.div> */}
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
