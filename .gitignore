@@ -400,3 +400,8 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 .claude/claude_code_config.json
+
+# Next.js build output
+.next/cache/
+.next/static/
+out/
