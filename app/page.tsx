@@ -56,19 +56,19 @@ export default function Home() {
 
   const advantages = [
     {
-      icon: '🌱',
+      icon: '',
       headline: 'Your Journey, Not the Industry Average',
       subtext: 'Traditional models tell you what happens to 1,000 companies on average. We show you what happens to YOUR company over time. Our ground-up simulation engine maps your specific trajectory through multiplicative wealth dynamics, revealing opportunities and hazards invisible to conventional analysis.',
-      image: '/images/tree_path.jpg'
+      image: '/images/forest_path.jpg'
     },
     {
-      icon: '⚡',
+      icon: '',
       headline: 'From Cost Center to Catalyst',
       subtext: 'Discover precisely how insurance accelerates sustainable growth rather than just transferring risk. Our real-time ergodicity diagnostics reveal the optimal insurance coverage levels that maximize your long-term wealth accumulation while protecting against business-ending events.',
       image: '/images/lightning_branches.jpg'
     },
     {
-      icon: '🎯',
+      icon: '',
       headline: 'Built for Your Business',
       subtext: 'Every simulation incorporates your specific operations, capital position, and risk profile. Design win-win contracts, optimize retention levels, and make decisions based on your actual constraints, not on theoretical assumptions about infinite time or capital.',
       image: '/images/jigsaw.jpg'
@@ -79,15 +79,16 @@ export default function Home() {
     <main className="min-h-screen bg-pure-white">
       {/* Background Parallax Layer */}
       <motion.div 
-        className="fixed inset-0 z-0"
+        className="fixed w-full h-[150vh] z-0"
         style={{ y: bgY }}
       >
         <Image
-          src="/images/path_background.jpg"
+          src="/images/triangle_ceiling_background.jpg"
           alt="Background"
           fill
-          className="object-cover opacity-20"
+          className="opacity-10 object-cover object-top"
           priority
+          sizes="100vw"
         />
       </motion.div>
 
@@ -125,7 +126,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            See Your Future, Not the Average
+            Your Future, Not The Average
           </motion.h1>
           
           <motion.p 
@@ -151,9 +152,10 @@ export default function Home() {
           </motion.div>
 
           <motion.div 
-            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+            className="absolute left-1/2 transform -translate-x-1/2"
+            style={{ bottom: '10vh' }}
             animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
           >
             <svg className="w-6 h-6 text-deep-forest/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -167,13 +169,13 @@ export default function Home() {
         <div ref={problemRef} className="absolute inset-0 z-0">
           <div 
             className="relative w-full h-[140%]"
-            style={{ transform: `translateY(-${problemY * 0.4}px)` }}
+            style={{ transform: `translateY(-${problemY * 1.00}px)` }}
           >
             <Image
               src="/images/highway.jpg"
               alt="Highway"
               fill
-              className="object-cover opacity-30"
+              className="object-cover opacity-40"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-pure-white via-pure-white/70 to-cool-mist/90" />
@@ -194,13 +196,13 @@ export default function Home() {
           </p>
         </motion.div>
       </section>
-
+      <section id="spacer1" className="h-40" />
       {/* The Breakthrough Section */}
       <section className="relative py-24 px-6 bg-cool-mist/20 overflow-hidden" ref={ref2}>
         <div ref={breakthroughRef} className="absolute inset-0 z-0">
           <div 
             className="relative w-full h-[140%]"
-            style={{ transform: `translateY(-${breakthroughY * 0.4}px)` }}
+            style={{ transform: `translateY(-${breakthroughY * 1.00}px)` }}
           >
             <Image
               src="/images/city_lightning.jpg"
@@ -223,7 +225,7 @@ export default function Home() {
             First principles. Real trajectories. Actual growth.
           </h2>
           <p className="text-lg text-deep-forest/80 leading-relaxed">
-            Unlike conventional Monte Carlo simulations, which assume all paths are equally accessible, this engine recognizes that certain losses create absorbing barriers—points of no return where future opportunities vanish. Build your corporate strategy from first principles that recognize the non-ergodic nature of real business environments.
+            Unlike conventional Monte Carlo simulations, which assume all paths are equally accessible, this engine recognizes that certain losses create absorbing barriers (points of no return where future opportunities vanish). Build your corporate strategy from first principles that recognize the non-ergodic nature of real business environments.
           </p>
         </motion.div>
       </section>
@@ -279,13 +281,13 @@ export default function Home() {
         <div ref={ctaRef} className="absolute inset-0 z-0">
           <div 
             className="relative w-full h-[140%]"
-            style={{ transform: `translateY(-${ctaY * 0.4}px)` }}
+            style={{ transform: `translateY(-${ctaY * 1.00}px)` }}
           >
             <Image
-              src="/images/race_car_tuning.jpg"
+              src="/images/compass.jpg"
               alt="Race Car Tuning"
               fill
-              className="object-cover opacity-20"
+              className="object-cover opacity-50"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-pure-white via-pure-white/80 to-transparent" />
@@ -315,19 +317,19 @@ export default function Home() {
               Start Your Analysis
             </motion.a>
             <motion.a
-              href="https://docs.ergodicityadvantage.com/api/tutorials/01_getting_started.html"
-              className="inline-block bg-transparent border-2 border-electric-teal text-electric-teal hover:bg-electric-teal hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
+              href="https://docs.ergodicityadvantage.com/api/theory/index.html"
+              className="inline-block bg-transparent border-2 border-sage-green text-sage-green hover:bg-sage-green hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Run Your First Simulation
+              Theoretical Foundations
             </motion.a>
           </div>
         </motion.div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-deep-forest text-white py-8 px-6">
+      <footer className="relative z-10 bg-deep-forest text-white py-8 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-white/80">
             © 2025 Ergodicity Advantage. Transforming risk management through first principles.
