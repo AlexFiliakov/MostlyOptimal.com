@@ -57,21 +57,21 @@ export default function Home() {
   const advantages = [
     {
       icon: '',
-      headline: 'Your Journey, Not the Industry Average',
+      headline: 'Your Unique Journey, Not the Industry Average',
       subtext: 'Traditional models tell you what happens to 1,000 companies on average. We show you what happens to YOUR company over time. Our ground-up simulation engine maps your specific trajectory through multiplicative wealth dynamics, revealing opportunities and hazards invisible to conventional analysis.',
-      image: '/images/forest_path.jpg'
+      image: '/images/snow_tracks.jpg'
     },
     {
       icon: '',
       headline: 'From Cost Center to Catalyst',
       subtext: 'Discover precisely how insurance accelerates sustainable growth rather than just transferring risk. Our real-time ergodicity diagnostics reveal the optimal insurance coverage levels that maximize your long-term wealth accumulation while protecting against business-ending events.',
-      image: '/images/lightning_branches.jpg'
+      image: '/images/solar_farm_sunrise.jpg'
     },
     {
       icon: '',
       headline: 'Built for Your Business',
       subtext: 'Every simulation incorporates your specific operations, capital position, and risk profile. Design win-win contracts, optimize retention levels, and make decisions based on your actual constraints, not on theoretical assumptions about infinite time or capital.',
-      image: '/images/jigsaw.jpg'
+      image: '/images/race_car_tuning.jpg'
     }
   ]
 
@@ -163,7 +163,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-
+      <section id="spacer1" className="h-40" />
       {/* The Problem Section */}
       <section id="discover" className="relative py-24 px-6 overflow-hidden" ref={ref1}>
         <div ref={problemRef} className="absolute inset-0 z-0">
@@ -221,7 +221,7 @@ export default function Home() {
           animate={inView2 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-6">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-deep-forest mb-6">
             First principles. Real trajectories. Actual growth.
           </h2>
           <p className="text-lg text-deep-forest/80 leading-relaxed">
