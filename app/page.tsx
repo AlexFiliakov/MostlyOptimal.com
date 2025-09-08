@@ -59,19 +59,19 @@ export default function Home() {
       icon: '',
       headline: 'Your Unique Journey, Not the Industry Average',
       subtext: 'Traditional models tell you what happens to 1,000 companies on average. We show you what happens to YOUR company over time. Our ground-up simulation engine maps your specific trajectory through multiplicative wealth dynamics, revealing opportunities and hazards invisible to conventional analysis.',
-      image: '/images/snow_tracks.jpg'
+      image: '/images/snow_tracks_small.webp'
     },
     {
       icon: '',
       headline: 'From Cost Center to Catalyst',
       subtext: 'Discover precisely how insurance accelerates sustainable growth rather than just transferring risk. Our real-time ergodicity diagnostics reveal the optimal insurance coverage levels that maximize your long-term wealth accumulation while protecting against business-ending events.',
-      image: '/images/solar_farm_sunrise.jpg'
+      image: '/images/solar_farm_sunrise_small.webp'
     },
     {
       icon: '',
       headline: 'Built for Your Business',
       subtext: 'Every simulation incorporates your specific operations, capital position, and risk profile. Design win-win contracts, optimize retention levels, and make decisions based on your actual constraints, not on theoretical assumptions about infinite time or capital.',
-      image: '/images/race_car_tuning.jpg'
+      image: '/images/race_car_tuning_small.webp'
     }
   ]
 
@@ -83,7 +83,7 @@ export default function Home() {
         style={{ y: bgY }}
       >
         <Image
-          src="/images/triangle_ceiling_background.jpg"
+          src="/images/triangle_ceiling_background.webp"
           alt="Background"
           fill
           className="opacity-10 object-cover object-top"
@@ -103,7 +103,7 @@ export default function Home() {
             style={{ y: heroY }}
           >
             <Image
-              src="/images/sailboat_ocean.jpg"
+              src="/images/sailboat_ocean.webp"
               alt="Sailboat Ocean"
               fill
               className="object-cover"
@@ -172,7 +172,7 @@ export default function Home() {
             style={{ transform: `translateY(-${problemY * 1.00}px)` }}
           >
             <Image
-              src="/images/highway.jpg"
+              src="/images/highway.webp"
               alt="Highway"
               fill
               className="object-cover opacity-20"
@@ -204,7 +204,7 @@ export default function Home() {
             style={{ transform: `translateY(-${breakthroughY * 1.00}px)` }}
           >
             <Image
-              src="/images/city_lightning.jpg"
+              src="/images/city_lightning.webp"
               alt="City Lightning"
               fill
               className="object-cover opacity-25"
@@ -281,7 +281,7 @@ export default function Home() {
             style={{ transform: `translateY(-${ctaY * 1.00}px)` }}
           >
             <Image
-              src="/images/compass.jpg"
+              src="/images/compass.webp"
               alt="Race Car Tuning"
               fill
               className="object-cover opacity-50"
@@ -328,7 +328,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative z-10 bg-deep-forest text-white py-8 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-white/80">
+          <p className="text-white/80 text-sm">
             © 2025 Ergodicity Advantage. Transforming risk management through first principles.
           </p>
         </div>

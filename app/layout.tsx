@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     siteName: 'Ergodicity Advantage',
     images: [
       {
-        url: '/images/sailboat_ocean.jpg',
+        url: '/images/sailboat_ocean.webp',
         width: 1200,
         height: 630,
         alt: 'Ergodicity Advantage',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ergodicity Advantage',
     description: 'Transform risk management from necessary cost to growth accelerator',
-    images: ['/images/sailboat_ocean.jpg'],
+    images: ['/images/sailboat_ocean.webp'],
   },
 }
 
