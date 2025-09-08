@@ -175,10 +175,9 @@ export default function Home() {
               src="/images/highway.jpg"
               alt="Highway"
               fill
-              className="object-cover opacity-40"
+              className="object-cover opacity-20"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-pure-white via-pure-white/70 to-cool-mist/90" />
           </div>
         </div>
 
@@ -259,8 +258,6 @@ export default function Home() {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep-forest/70 to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-5xl">{advantage.icon}</div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-display font-bold text-deep-forest mb-3">
