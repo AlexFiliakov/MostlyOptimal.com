@@ -405,3 +405,6 @@ FodyWeavers.xsd
 .next/cache/
 .next/static/
 out/
+
+# Images
+public/images/xcf/
