@@ -411,5 +411,7 @@ FodyWeavers.xsd
 .next/static/
 out/
 
+nul
+
 # Images
 public/images/xcf/
