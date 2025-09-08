@@ -1,6 +1,0 @@
-# Cloudflare Pages configuration
-name = "ergodicityadvantage"
-compatibility_date = "2024-12-01"
-
-# Pages-specific configuration
-pages_build_output_dir = "./out"

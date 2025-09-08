@@ -11,10 +11,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:cf": "next build && next export",
+    "build:cf": "next build",
     "preview:cf": "wrangler pages dev ./out",
     "deploy:cf": "wrangler pages deploy ./out --project-name=ergodicityadvantage",
-    "deploy:production": "npm run build && wrangler pages deploy ./out --project-name=ergodicityadvantage --branch=main"
+    "deploy:production": "npm run build && wrangler pages deploy ./out --project-name=ergodicityadvantage --branch=main",
+    "pages:deploy": "wrangler pages deploy ./out --project-name=ergodicityadvantage"
   },
   "repository": {
     "type": "git",
