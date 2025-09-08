@@ -163,7 +163,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
-      <section id="spacer1" className="h-40" />
+      <section id="spacer1" className="h-24" />
       {/* The Problem Section */}
       <section id="discover" className="relative py-24 px-6 overflow-hidden" ref={ref1}>
         <div ref={problemRef} className="absolute inset-0 z-0">
@@ -195,7 +195,7 @@ export default function Home() {
           </p>
         </motion.div>
       </section>
-      <section id="spacer1" className="h-40" />
+      <section id="spacer1" className="h-24" />
       {/* The Breakthrough Section */}
       <section className="relative py-24 px-6 bg-cool-mist/20 overflow-hidden" ref={ref2}>
         <div ref={breakthroughRef} className="absolute inset-0 z-0">
