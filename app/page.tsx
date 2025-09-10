@@ -49,6 +49,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const [ref0, inView0] = useInView({ threshold: 0.3, triggerOnce: true })
   const [ref1, inView1] = useInView({ threshold: 0.3, triggerOnce: true })
   const [ref2, inView2] = useInView({ threshold: 0.3, triggerOnce: true })
   const [ref3, inView3] = useInView({ threshold: 0.3, triggerOnce: true })
@@ -163,6 +164,36 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
+      <section id="spacer1" className="h-24" />
+      {/* The Definition Section */}
+      <section id="discover" className="relative py-24 px-6 overflow-hidden" ref={ref0}>
+        <div ref={problemRef} className="absolute inset-0 z-0">
+          <div 
+            className="relative w-full h-[140%]"
+            style={{ transform: `translateY(-${problemY * 1.00}px)` }}
+          >
+            <Image
+              src="/images/delta.webp"
+              alt="Nile Delta"
+              fill
+              className="object-cover opacity-20"
+              sizes="100vw"
+            />
+          </div>
+        </div>
+
+        <motion.div 
+          className="relative z-10 max-w-4xl mx-auto text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView0 ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-lg text-deep-forest/80 leading-relaxed">
+            <b>Ergodicity</b> is the mathematical principle that distinguishes between what happens to many companies on average versus what happens to YOUR company over time. Non-ergodic systems (like real businesses) can face ruin from events that look statistically manageable, making traditional risk models dangerously misleading for individual enterprises.
+          </p>
+        </motion.div>
+      </section>
+      <section id="spacer1" className="h-24" />
       <section id="spacer1" className="h-24" />
       {/* The Problem Section */}
       <section id="discover" className="relative py-24 px-6 overflow-hidden" ref={ref1}>
