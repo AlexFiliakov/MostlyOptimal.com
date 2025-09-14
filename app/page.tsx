@@ -54,6 +54,7 @@ export default function Home() {
   const [ref2, inView2] = useInView({ threshold: 0.3, triggerOnce: true })
   const [ref3, inView3] = useInView({ threshold: 0.3, triggerOnce: true })
   const [ref4, inView4] = useInView({ threshold: 0.3, triggerOnce: true })
+  const [ref5, inView5] = useInView({ threshold: 0.3, triggerOnce: true })
 
   const advantages = [
     {
@@ -73,6 +74,45 @@ export default function Home() {
       headline: 'Built for Your Business',
       subtext: 'Every simulation incorporates your specific operations, capital position, and risk profile. Design win-win contracts, optimize retention levels, and make decisions based on your actual constraints, not on theoretical assumptions about infinite time or capital.',
       image: '/images/race_car_tuning_small.webp'
+    }
+  ]
+
+  const features = [
+    {
+      title: '📈⏰Long-Term Business Optimization',
+      description: 'Advanced optimization algorithms that maximize long-term company value through optimal insurance decisions, using time-average (ergodic) rather than ensemble approaches.'
+    },
+    {
+      title: '📊💼Comprehensive Financial Statements',
+      description: 'Familiar financial reporting formats directly from risk analysis outputs (Balance Sheet, Income Statement, Cash Flow).'
+    },
+    {
+      title: '🏗️🛡️Multi-Layer Insurance Tower Design',
+      description: 'Sophisticated insurance program structuring with support for multiple layers, attachment points, reinstatements, and aggregate limits.'
+    },
+    {
+      title: '🎯📉Advanced Risk Metrics Suite',
+      description: 'Industry-standard risk metrics quantify tail risk exposure and support data-driven insurance purchasing decisions with confidence intervals and bootstrap analysis.'
+    },
+    {
+      title: '🎲🔬Monte Carlo Simulation Engine',
+      description: 'Model complex loss distributions and understand the full spectrum of potential outcomes with statistical confidence.'
+    },
+    {
+      title: '🔄🔍Scenario Management & Sensitivity Analysis',
+      description: 'Comprehensive framework for managing multiple simulation scenarios, parameter sweeps, and what-if analyses under different market conditions.'
+    },
+    {
+      title: '⏮️✅Strategy Backtesting & Walk-Forward Validation',
+      description: 'Robust backtesting framework that tests insurance strategies against historical and simulated data using walk-forward validation techniques.'
+    },
+    {
+      title: '⚖️🚦Real-Time Business Constraints',
+      description: 'Configurable business constraints including maximum risk tolerance, minimum ROE thresholds, leverage ratios, liquidity requirements, and regulatory compliance checks.'
+    },
+    {
+      title: '📋👔Executive Reporting & Visualization',
+      description: 'Comprehensive reporting suite with interactive dashboards, Excel export capabilities, and publication-ready visualizations that translate complex analytics into actionable business insights.'
     }
   ]
 
@@ -304,8 +344,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Application Features */}
+      <section className="relative py-24 px-6" ref={ref4}>
+        <div className="max-w-7xl mx-auto">
+          <motion.h2 
+            className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView4 ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            Application Features
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView4 ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                whileHover={{ y: -5 }}
+              >
+                {/* <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src={advantage.image}
+                    alt={advantage.headline}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div> */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-display font-bold text-deep-forest mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-deep-forest/70">
+                    {feature.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action Section */}
-      <section className="relative py-24 px-6 bg-gradient-to-b from-soft-silver/30 to-pure-white overflow-hidden" ref={ref4}>
+      <section className="relative py-24 px-6 bg-gradient-to-b from-soft-silver/30 to-pure-white overflow-hidden" ref={ref5}>
         <div ref={ctaRef} className="absolute inset-0 z-0">
           <div 
             className="relative w-full h-[140%]"
@@ -325,7 +409,7 @@ export default function Home() {
         <motion.div 
           className="relative z-10 max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 30 }}
-          animate={inView4 ? { opacity: 1, y: 0 } : {}}
+          animate={inView5 ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-6">
