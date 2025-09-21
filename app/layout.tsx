@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ergodicity Advantage',
     description: 'Transform risk management from necessary cost to growth accelerator',
-    url: 'https://ergodicityadvantage.com',
+    url: 'https://mostlyoptimal.com',
     siteName: 'Ergodicity Advantage',
     images: [
       {

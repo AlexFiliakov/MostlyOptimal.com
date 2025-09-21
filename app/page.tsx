@@ -421,7 +421,7 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
-              href="https://docs.ergodicityadvantage.com/api/tutorials/01_getting_started.html"
+              href="https://docs.mostlyoptimal.com/api/tutorials/01_getting_started.html"
               className="inline-block bg-sage-green hover:bg-sage-green/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -429,7 +429,7 @@ export default function Home() {
               Start Your Analysis
             </motion.a>
             <motion.a
-              href="https://docs.ergodicityadvantage.com/api/theory/index.html"
+              href="https://docs.mostlyoptimal.com/api/theory/index.html"
               className="inline-block bg-transparent border-2 border-sage-green text-sage-green hover:bg-sage-green hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
