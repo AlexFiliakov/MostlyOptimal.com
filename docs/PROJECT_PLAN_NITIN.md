@@ -37,32 +37,41 @@ The overarching goal is to distribute my open-source software, create thought le
 
 ## Content
 
-### Highlight some research findings from my paper to illustrate what the framework does
+### Key Research Findings
 
-This graphic can go on the website:
+(Highlight some research findings from my paper to illustrate what the framework does)
+
+Most companies treat insurance as a cost to minimize. This research reveals something different: **strategic insurance structures can accelerate long-term growth** by protecting against capital erosion while preserving cash for productive investment.
+Using multi-year financial simulations with stochastic loss scenarios, I've quantified effects that single-year analyses miss:
+
+#### Insurance provides measurable growth advantages over self-insurance
+
+- Companies with lower capitalization see the strongest benefit. Insurance allows them to sustain growth trajectories that would otherwise be derailed by adverse loss years
+- The growth lift persists across capitalization levels, though the magnitude varies with company financial profile
+
+#### Deductible selection matters more than most realize
+
+- High deductibles typically maximize growth by protecting against catastrophic losses while avoiding premium drag from attritional coverage
+- At very low capitalization levels, lower deductibles become optimal to prevent insolvency from mid-sized losses
+- Retaining attritional risk is generally more efficient than paying carriers to insure predictable, manageable losses that leave them exposed to morale hazard
+
+#### Optimal strategies are company-specific
+
+- Loss exposure characteristics, operating margins, asset efficiency, and growth objectives all influence ideal insurance structures
+- The framework enables you to model your own business parameters rather than relying on generic industry recommendations
 
 ![Growth Lift by Capitalization](../public/images/results/growth_lift_by_capitalization.png)
 
-(Without getting into specific numbers because those depend heavily on the assumptions used, so very company-specific):
-- It can be shown under reasonable assumptions that insurance enhances growth over time compared to self-insurance
-  - Optimal insurance strategy depends highly on the specific financial profile of the business
-  - Insurance can be highly beneficial at lower capitalizations
-  - High deductibles are often optimal to provide protection against capital erosion from large and catastrophic losses
-  - At low capitalization levels, lower deductibles become optimal
-  - It is generally optimal to retain some level of risk instead of paying to insure against attritional losses
-  - We encourage you to input your own business assumptions and evaluate your current insurance program
+The chart above illustrates growth lift across different capitalization levels and deductible choices under one scenario. **Your optimal structure depends on your specific financial profile.**
 
 ### Project Highlights
 
-- Peruse the existing landing page to get a sense of the product features, which we can include here: https://MostlyOptimal.com
+- Peruse the existing landing page to get a sense of the product features, which we can include here. The features are described here: https://MostlyOptimal.com
 
-### Link to Getting Started guide
+### Links to Getting Started Guide and Research
 
-https://docs.ergodicityadvantage.com/api/tutorials/01_getting_started.html
-
-### Link to Ongoing Research
-
-https://drive.google.com/open?id=1_vcIHcM3DHIqRdWqwPg_2pGctAMBpJ01&usp=drive_fs
+→ [Explore the framework with your own assumptions](https://docs.ergodicityadvantage.com/api/tutorials/01_getting_started.html)
+→ [Read the full research paper](https://drive.google.com/open?id=1_vcIHcM3DHIqRdWqwPg_2pGctAMBpJ01&usp=drive_fs)
 
 ### About Me
 
