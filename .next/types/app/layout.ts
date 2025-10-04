@@ -1,4 +1,4 @@
-// File: C:\Users\alexf\OneDrive\Documents\Projects\ErgodicAdvantage.com\ergodicityadvantage.com\app\layout.tsx
+// File: C:\Users\alexf\OneDrive\Documents\Projects\MostlyOptimal.com\ergodicityadvantage.com\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
