@@ -1,5 +1,6 @@
 import HeroSection from "./components/HeroSection";
 import ErgodicitySection from "./components/ErgodicitySection";
+import ScrollStackSection from "./components/ScrollStackSection";
 import AdvantagesSection from "./components/AdvantagesSection";
 import FeaturesSection from "./components/FeaturesSection";
 import CTASection from "./components/CTASection";
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="min-h-screen bg-pure-white">
       <HeroSection />
       <Spacer />
+      <ScrollStackSection />
       <ErgodicitySection />
       <AdvantagesSection />
       <FeaturesSection />
