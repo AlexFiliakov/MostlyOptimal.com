@@ -1,7 +1,5 @@
 import HeroSection from "./components/HeroSection";
-import DefinitionSection from "./components/DefinitionSection";
-import ProblemSection from "./components/ProblemSection";
-import BreakthroughSection from "./components/BreakthroughSection";
+import ErgodicitySection from "./components/ErgodicitySection";
 import AdvantagesSection from "./components/AdvantagesSection";
 import FeaturesSection from "./components/FeaturesSection";
 import CTASection from "./components/CTASection";
@@ -13,9 +11,7 @@ export default function Home() {
     <main className="min-h-screen bg-pure-white">
       <HeroSection />
       <Spacer />
-      <ProblemSection />
-      <DefinitionSection />
-      <BreakthroughSection />
+      <ErgodicitySection />
       <AdvantagesSection />
       <FeaturesSection />
       <CTASection />
