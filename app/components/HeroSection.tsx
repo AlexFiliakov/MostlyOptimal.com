@@ -25,24 +25,27 @@ export default function HeroSection() {
           with a simulation engine built for how businesses actually succeed.
         </p>
 
-        <div>
-         <CustomButton>Discover Your Path</CustomButton>
-        </div>
-
-        <div className="absolute left-1/2 transform -translate-x-1/2" style={{ bottom: "10vh" }}>
-          <svg
-            className="w-6 h-6 text-deep-forest/50"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+        <div className="flex flex-col items-center gap-8 mb-16">
+          <CustomButton>Discover Your Path</CustomButton>
+          
+          <div className="flex flex-col items-center gap-2 animate-bounce">
+            <span className="text-xs text-deep-forest/60 font-medium tracking-wide">
+              SCROLL TO EXPLORE
+            </span>
+            <svg
+              className="w-4 h-4 text-deep-forest/50"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </section>

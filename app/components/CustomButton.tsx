@@ -38,7 +38,7 @@ const StyledWrapper = styled.div`
       /* font-family: 'Valorant', sans-serif; */
    color: white;
    cursor: pointer;
-   font-size: 13px;
+   font-size: 16px;
    font-weight: bold;
    letter-spacing: 0.05rem;
    border: 1px solid #2A4D3A;
