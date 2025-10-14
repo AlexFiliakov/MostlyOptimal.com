@@ -1,4 +1,15 @@
+'use client';
+
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default function FeaturesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const features = [
     {
       title: "Long-Term Business Optimization",
@@ -47,8 +58,51 @@ export default function FeaturesSection() {
     },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate heading
+      gsap.from(headingRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 70%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+        },
+        y: 60,
+        opacity: 0,
+        scale: 0.95,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      // Animate feature cards with stagger effect
+      cardsRef.current.forEach((card, index) => {
+        if (card) {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              end: "top 40%",
+              toggleActions: "play none none reverse",
+            },
+            y: 60,
+            opacity: 0,
+            scale: 0.9,
+            rotation: index % 2 === 0 ? -2 : 2,
+            duration: 0.7,
+            delay: (index % 3) * 0.1,
+            ease: "back.out(1.2)",
+          });
+        }
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section 
+      ref={sectionRef}
       className="relative py-24 px-6 bg-cover bg-center"
       style={{
         backgroundImage: "url('/images/snow_tracks.webp')",
@@ -56,7 +110,10 @@ export default function FeaturesSection() {
       }}
     >
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16">
+        <h2 
+          ref={headingRef}
+          className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
+        >
           Application Features
         </h2>
 
@@ -64,6 +121,7 @@ export default function FeaturesSection() {
           {features.map((feature, index) => (
             <div
               key={index}
+              ref={(el) => { cardsRef.current[index] = el; }}
               className="bg-white shadow-xl overflow-hidden bg-opacity-65 backdrop-blur-sm group hover:shadow-2xl transition-all duration-300"
             >
               <div className="p-6">

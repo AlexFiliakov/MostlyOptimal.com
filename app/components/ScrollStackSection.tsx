@@ -2,10 +2,17 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollStackSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   const cards = [
     {
@@ -55,6 +62,36 @@ export default function ScrollStackSection() {
   ];
 
   useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate heading and subtitle on scroll
+      gsap.from(headingRef.current, {
+        scrollTrigger: {
+          trigger: headingRef.current,
+          start: "top 80%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      gsap.from(subtitleRef.current, {
+        scrollTrigger: {
+          trigger: subtitleRef.current,
+          start: "top 80%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.2,
+        ease: "power3.out",
+      });
+    });
+
     const handleScroll = () => {
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
@@ -68,7 +105,10 @@ export default function ScrollStackSection() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      ctx.revert();
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [cards.length]);
 
   return (
@@ -80,10 +120,16 @@ export default function ScrollStackSection() {
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <div className="w-full max-w-7xl mx-auto px-6">
           <div className="mb-12 text-center">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-4">
+            <h2 
+              ref={headingRef}
+              className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-4"
+            >
               The Ergodicity Advantage
             </h2>
-            <p className="text-xl text-deep-forest/70 max-w-3xl mx-auto">
+            <p 
+              ref={subtitleRef}
+              className="text-xl text-deep-forest/70 max-w-3xl mx-auto"
+            >
               Transform your insurance strategy with four foundational pillars
             </p>
           </div>
