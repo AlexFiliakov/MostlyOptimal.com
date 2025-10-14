@@ -36,7 +36,7 @@ export default function AdvantagesSection() {
           {advantages.map((advantage, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
+              className="bg-white shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image

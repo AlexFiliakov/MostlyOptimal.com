@@ -19,10 +19,10 @@ export default function BreakthroughSection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-display font-bold text-deep-forest mb-6">
+        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
           First principles. Real trajectories. Actual growth.
         </h2>
-        <p className="text-lg text-deep-forest/80 leading-relaxed">
+        <p className="text-lg text-white leading-relaxed">
           Unlike conventional Monte Carlo simulations, which assume all paths
           are equally accessible, this engine recognizes that certain losses
           create absorbing barriers (points of no return where future

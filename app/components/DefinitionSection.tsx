@@ -19,7 +19,10 @@ export default function DefinitionSection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <p className="text-lg text-deep-forest/80 leading-relaxed">
+        <h2 className="text-4xl md:text-4xl font-display font-bold text-white mb-6">
+          Understanding Ergodicity
+        </h2>
+        <p className="text-lg text-white/80 leading-relaxed">
           <b>Ergodicity</b> is the mathematical principle that distinguishes
           between what happens to many companies on average versus what
           happens to YOUR company over time. Non-ergodic systems (like real

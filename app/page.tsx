@@ -13,8 +13,8 @@ export default function Home() {
     <main className="min-h-screen bg-pure-white">
       <HeroSection />
       <Spacer />
-      <DefinitionSection />
       <ProblemSection />
+      <DefinitionSection />
       <BreakthroughSection />
       <AdvantagesSection />
       <FeaturesSection />
