@@ -93,6 +93,15 @@ Alex Filiakov, ACAS
 
 https://docs.mostlyoptimal.com/api/index.html
 
+### Navigation Links
+
+- [Scenarios](https://mostlyoptimal.com/scenarios) - This will link to a section containing analyses using this framework, which I’ll build later.
+- [Research](https://mostlyoptimal.com/research)
+- [Theory](https://docs.mostlyoptimal.com/api/theory/index.html)
+- [FAQ](https://mostlyoptimal.com/faq) - I'll add this section later, which will address prerequisites and common concerns.
+- [Getting Started](https://mostlyoptimal.com/tutorial)
+- [Contact](https://mostlyoptimal.com/contact) - This will link to a contact page that I’ll build later
+
 ## Visual Identity & Color Scheme
 
 ### Primary Palette
