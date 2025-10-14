@@ -1,63 +1,6 @@
-"use client";
-
-import { motion, useScroll, useTransform, useMotionValue } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
-import { useEffect, useState, useRef } from "react";
 
 export default function Home() {
-  const { scrollY } = useScroll();
-  const problemRef = useRef<HTMLDivElement>(null);
-  const breakthroughRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
-
-  // Background parallax for fixed background
-  const bgY = useTransform(scrollY, [0, 1000], [0, -50]);
-  const heroY = useTransform(scrollY, [0, 800], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0.3]);
-
-  // Section-specific parallax transforms
-  const [problemY, setProblemY] = useState(0);
-  const [breakthroughY, setBreakthroughY] = useState(0);
-  const [ctaY, setCtaY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (problemRef.current) {
-        const rect = problemRef.current.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const progress =
-          1 - (rect.top + rect.height) / (viewportHeight + rect.height);
-        setProblemY(progress * 150);
-      }
-
-      if (breakthroughRef.current) {
-        const rect = breakthroughRef.current.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const progress =
-          1 - (rect.top + rect.height) / (viewportHeight + rect.height);
-        setBreakthroughY(progress * 150);
-      }
-
-      if (ctaRef.current) {
-        const rect = ctaRef.current.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const progress =
-          1 - (rect.top + rect.height) / (viewportHeight + rect.height);
-        setCtaY(progress * 150);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const [ref0, inView0] = useInView({ threshold: 0.3, triggerOnce: true });
-  const [ref1, inView1] = useInView({ threshold: 0.3, triggerOnce: true });
-  const [ref2, inView2] = useInView({ threshold: 0.3, triggerOnce: true });
-  const [ref3, inView3] = useInView({ threshold: 0.3, triggerOnce: true });
-  const [ref4, inView4] = useInView({ threshold: 0.3, triggerOnce: true });
-  const [ref5, inView5] = useInView({ threshold: 0.3, triggerOnce: true });
 
   const advantages = [
     {
@@ -150,8 +93,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <motion.div className="absolute inset-0 z-0">
-          {/* <motion.div className="relative w-full h-[120%]" style={{ y: heroY }}> */}
+        <div className="absolute inset-0 z-0">
           <Image
             src="/images/sailboat_ocean.webp"
             alt="Sailboat Ocean"
@@ -160,54 +102,29 @@ export default function Home() {
             priority
             sizes="100vw"
           />
-          {/* </motion.div> */}
           <div className="absolute inset-0 gradient-hero opacity-90" />
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="relative z-10 text-center px-6 max-w-5xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <motion.h1
-            className="text-5xl md:text-7xl font-display font-bold text-deep-forest mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-display font-bold text-deep-forest mb-6">
             Your Future, Not The Average
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="text-xl md:text-2xl text-deep-forest/80 mb-12 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
+          <p className="text-xl md:text-2xl text-deep-forest/80 mb-12 max-w-3xl mx-auto">
             Transform risk management from necessary cost to growth accelerator
             with a simulation engine built for how businesses actually succeed.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
+          <div>
             <a
               href="#discover"
               className="inline-block bg-sage-green hover:bg-sage-green/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Discover Your Path
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="absolute left-1/2 transform -translate-x-1/2"
-            style={{ bottom: "10vh" }}
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          >
+          <div className="absolute left-1/2 transform -translate-x-1/2" style={{ bottom: "10vh" }}>
             <svg
               className="w-6 h-6 text-deep-forest/50"
               fill="none"
@@ -221,37 +138,28 @@ export default function Home() {
                 d="M19 14l-7 7m0 0l-7-7m7 7V3"
               />
             </svg>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </section>
       <section id="spacer1" className="h-24" />
       {/* The Definition Section */}
       <section
         id="discover"
         className="relative py-24 px-6 overflow-hidden"
-        ref={ref0}
       >
-        <div ref={problemRef} className="absolute inset-0 z-0">
-          <div
-            className="relative w-full h-[140%]"
-            // style={{ transform: `translateY(-${problemY * 1.0}px)` }}
-          >
+        <div className="absolute inset-0 z-0">
+          <div className="relative w-full h-full">
             <Image
               src="/images/delta.webp"
               alt="Nile Delta"
               fill
-              className="object-cover "
+              className="object-cover"
               sizes="100vw"
             />
           </div>
         </div>
 
-        <motion.div
-          className="relative z-10 max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView0 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <p className="text-lg text-deep-forest/80 leading-relaxed">
             <b>Ergodicity</b> is the mathematical principle that distinguishes
             between what happens to many companies on average versus what
@@ -260,7 +168,7 @@ export default function Home() {
             manageable, making traditional risk models dangerously misleading
             for individual enterprises.
           </p>
-        </motion.div>
+        </div>
       </section>
       <section id="spacer1" className="h-24" />
       <section id="spacer1" className="h-24" />
@@ -268,13 +176,9 @@ export default function Home() {
       <section
         id="discover"
         className="relative py-24 px-6 overflow-hidden"
-        ref={ref1}
       >
-        <div ref={problemRef} className="absolute inset-0 z-0">
-          <div
-            className="relative w-full h-[140%]"
-            style={{ transform: `translateY(-${problemY * 1.0}px)` }}
-          >
+        <div className="absolute inset-0 z-0">
+          <div className="relative w-full h-full">
             <Image
               src="/images/highway.webp"
               alt="Highway"
@@ -285,12 +189,7 @@ export default function Home() {
           </div>
         </div>
 
-        <motion.div
-          className="relative z-10 max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView1 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-6">
             Average outcomes don't apply to individual journeys
           </h2>
@@ -302,19 +201,15 @@ export default function Home() {
             rationally reject positive expected value bets and why insurance
             creates value despite its mathematical cost.
           </p>
-        </motion.div>
+        </div>
       </section>
       <section id="spacer1" className="h-24" />
       {/* The Breakthrough Section */}
       <section
         className="relative py-24 px-6 bg-cool-mist/20 overflow-hidden"
-        ref={ref2}
       >
-        <div ref={breakthroughRef} className="absolute inset-0 z-0">
-          <div
-            className="relative w-full h-[140%]"
-            style={{ transform: `translateY(-${breakthroughY * 1.0}px)` }}
-          >
+        <div className="absolute inset-0 z-0">
+          <div className="relative w-full h-full">
             <Image
               src="/images/city_lightning.webp"
               alt="City Lightning"
@@ -326,12 +221,7 @@ export default function Home() {
           </div>
         </div>
 
-        <motion.div
-          className="relative z-10 max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView2 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-deep-forest mb-6">
             First principles. Real trajectories. Actual growth.
           </h2>
@@ -343,30 +233,21 @@ export default function Home() {
             principles that recognize the non-ergodic nature of real business
             environments.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       {/* Three Advantages Section */}
-      <section className="relative py-24 px-6" ref={ref3}>
+      <section className="relative py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.h2
-            className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView3 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16">
             Three Ways We Transform Your Risk Strategy
-          </motion.h2>
+          </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {advantages.map((advantage, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="bg-white rounded-xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView3 ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ y: -5 }}
               >
                 <div className="relative h-48 overflow-hidden">
                   <Image
@@ -382,49 +263,32 @@ export default function Home() {
                   </h3>
                   <p className="text-deep-forest/70">{advantage.subtext}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Application Features */}
-      <section className="relative py-24 px-6" ref={ref4}>
+      <section className="relative py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <motion.h2
-            className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView4 ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8 }}
-          >
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16">
             Application Features
-          </motion.h2>
+          </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <motion.div
+              <div
                 key={index}
                 className="bg-white rounded-xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView4 ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                whileHover={{ y: -5 }}
               >
-                {/* <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={advantage.image}
-                    alt={advantage.headline}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div> */}
                 <div className="p-6">
                   <h3 className="text-2xl font-display font-bold text-deep-forest mb-3">
                     {feature.title}
                   </h3>
                   <p className="text-deep-forest/70">{feature.description}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -433,13 +297,9 @@ export default function Home() {
       {/* Call to Action Section */}
       <section
         className="relative py-24 px-6 bg-gradient-to-b from-soft-silver/30 to-pure-white overflow-hidden"
-        ref={ref5}
       >
-        <div ref={ctaRef} className="absolute inset-0 z-0">
-          <div
-            className="relative w-full h-[140%]"
-            style={{ transform: `translateY(-${ctaY * 1.0}px)` }}
-          >
+        <div className="absolute inset-0 z-0">
+          <div className="relative w-full h-full">
             <Image
               src="/images/compass.webp"
               alt="Race Car Tuning"
@@ -451,12 +311,7 @@ export default function Home() {
           </div>
         </div>
 
-        <motion.div
-          className="relative z-10 max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView5 ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-        >
+        <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-6">
             Ready to See Your True Path?
           </h2>
@@ -467,24 +322,20 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
+            <a
               href="https://mostlyoptimal.com/tutorial"
               className="inline-block bg-sage-green hover:bg-sage-green/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Start Your Analysis
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="https://mostlyoptimal.com/research"
               className="inline-block bg-transparent border-2 border-sage-green text-sage-green hover:bg-sage-green hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               Research Paper
-            </motion.a>
+            </a>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Footer */}
