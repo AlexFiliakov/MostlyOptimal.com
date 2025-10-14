@@ -71,9 +71,9 @@ The chart above illustrates growth lift across different capitalization levels a
 
 ### Links to Getting Started Guide and Research
 
-→ [Explore the framework with your own assumptions](https://docs.ergodicityadvantage.com/api/tutorials/01_getting_started.html)
+→ [Explore the framework with your own assumptions](https://mostlyoptimal.com/tutorial)
 
-→ [Read the full research paper](https://drive.google.com/open?id=1_vcIHcM3DHIqRdWqwPg_2pGctAMBpJ01&usp=drive_fs)
+→ [Read the full research paper](https://mostlyoptimal.com/research)
 
 ### About Me
 
