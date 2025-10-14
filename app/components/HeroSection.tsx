@@ -1,4 +1,7 @@
+'use client';
+
 import Image from "next/image";
+import CustomButton from "./CustomButton";
 
 export default function HeroSection() {
   return (
@@ -6,10 +9,10 @@ export default function HeroSection() {
       <Image
         src="/images/sailboat_ocean.webp"
         alt="Sailboat Ocean"
-        fill
-        className="object-cover fixed"
-        priority
+        className="object-cover w-full h-full fixed"
         sizes="100vw"
+        width={400}
+        height={400}
       />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
@@ -23,12 +26,7 @@ export default function HeroSection() {
         </p>
 
         <div>
-          <a
-            href="#discover"
-            className="inline-block bg-sage-green hover:bg-sage-green/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Discover Your Path
-          </a>
+         <CustomButton>Discover Your Path</CustomButton>
         </div>
 
         <div className="absolute left-1/2 transform -translate-x-1/2" style={{ bottom: "10vh" }}>
