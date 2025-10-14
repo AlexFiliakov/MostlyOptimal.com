@@ -14,10 +14,7 @@ export default function Home() {
       <HeroSection />
       <Spacer />
       <DefinitionSection />
-      <Spacer />
-      <Spacer />
       <ProblemSection />
-      <Spacer />
       <BreakthroughSection />
       <AdvantagesSection />
       <FeaturesSection />

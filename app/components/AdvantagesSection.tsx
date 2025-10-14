@@ -26,7 +26,7 @@ export default function AdvantagesSection() {
   ];
 
   return (
-    <section className="relative py-24 px-6">
+    <section className="relative bg-white py-24 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16">
           Three Ways We Transform Your Risk Strategy
