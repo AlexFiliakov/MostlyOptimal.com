@@ -100,6 +100,7 @@ https://docs.mostlyoptimal.com/api/index.html
 - [Theory](https://docs.mostlyoptimal.com/api/theory/index.html)
 - [FAQ](https://mostlyoptimal.com/faq) - I'll add this section later, which will address prerequisites and common concerns.
 - [Getting Started](https://mostlyoptimal.com/tutorial)
+- [About](https://mostlyoptimal.com/about) - This will link to a page about me that I'll build later
 - [Contact](https://mostlyoptimal.com/contact) - This will link to a contact page that I’ll build later
 
 ## Visual Identity & Color Scheme
