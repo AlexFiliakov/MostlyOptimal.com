@@ -1,3 +1,4 @@
+import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import ErgodicitySection from "./components/ErgodicitySection";
 import ScrollStackSection from "./components/ScrollStackSection";
@@ -10,6 +11,7 @@ import Spacer from "./components/Spacer";
 export default function Home() {
   return (
     <main className="min-h-screen bg-pure-white">
+      <Header />
       <HeroSection />
       <Spacer />
       <ScrollStackSection />
