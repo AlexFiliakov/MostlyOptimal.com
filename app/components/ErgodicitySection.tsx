@@ -1,11 +1,10 @@
 import Image from "next/image";
 
 export default function ErgodicitySection() {
-
   return (
     <>
       {/* Problem Subsection */}
-      <section className="relative py-24 px-6 overflow-hidden">
+      <section className="relative py-16 xl:py-24 px-4 xl:px-6 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-deep-forest">
           <div className="relative w-full h-full">
             <Image
@@ -18,11 +17,11 @@ export default function ErgodicitySection() {
           </div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-8 py-4">
-          <h2 className="text-4xl md:text-4xl font-display font-bold text-white mb-6">
+        <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-6 xl:px-8 py-3 xl:py-4">
+          <h2 className="text-3xl xl:text-4xl font-display font-bold text-white mb-4 xl:mb-6">
             Average outcomes don't apply to individual journeys
           </h2>
-          <p className="text-lg text-white/80 leading-relaxed">
+          <p className="text-base xl:text-lg text-white/80 leading-relaxed">
             Traditional risk management commits a fundamental error: it assumes
             that the average outcome across many parallel scenarios applies to
             any single company's journey through time. This distinction between
@@ -35,7 +34,7 @@ export default function ErgodicitySection() {
 
       <div className="relative bg-white w-full h-16"></div>
       {/* Definition Subsection */}
-      <section id="discover" className="relative py-24 px-6 overflow-hidden">
+      <section id="discover" className="relative py-16 xl:py-24 px-4 xl:px-6 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-deep-forest">
           <div className="relative w-full h-full">
             <Image
@@ -48,11 +47,11 @@ export default function ErgodicitySection() {
           </div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-8 py-4">
-          <h2 className="text-4xl md:text-4xl font-display font-bold text-white mb-6">
+        <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-6 xl:px-8 py-3 xl:py-4">
+          <h2 className="text-3xl xl:text-4xl font-display font-bold text-white mb-4 xl:mb-6">
             Understanding Ergodicity
           </h2>
-          <p className="text-lg text-white/80 leading-relaxed">
+          <p className="text-base xl:text-lg text-white/80 leading-relaxed">
             <b>Ergodicity</b> is the mathematical principle that distinguishes
             between what happens to many companies on average versus what
             happens to YOUR company over time. Non-ergodic systems (like real
@@ -64,7 +63,7 @@ export default function ErgodicitySection() {
       </section>
       <div className="relative bg-white w-full h-16"></div>
       {/* Breakthrough Subsection */}
-      <section className="relative  py-24 px-6 bg-cool-mist/20 overflow-hidden">
+      <section className="relative  py-16 xl:py-24 px-4 xl:px-6 bg-cool-mist/20 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-deep-forest">
           <div className="relative w-full h-full">
             <Image
@@ -78,11 +77,11 @@ export default function ErgodicitySection() {
           </div>
         </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-8 py-4">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+        <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-6 xl:px-8 py-3 xl:py-4">
+          <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-display font-bold text-white mb-4 xl:mb-6">
             First principles. Real trajectories. Actual growth.
           </h2>
-          <p className="text-lg text-white leading-relaxed">
+          <p className="text-base xl:text-lg text-white leading-relaxed">
             Unlike conventional Monte Carlo simulations, which assume all paths
             are equally accessible, this engine recognizes that certain losses
             create absorbing barriers (points of no return where future
