@@ -118,7 +118,7 @@ export default function ScrollStackSection() {
       style={{ minHeight: `${cards.length * 100}vh` }}
     >
       <div className="sticky top-0 h-screen flex items-start justify-center">
-        <div className="w-full max-w-7xl mx-auto px-6">
+        <div className="w-full max-w-3xl xl:max-w-7xl mx-auto px-6">
           <div className="my-8 max-lg:my-4 text-center">
             <h2 className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-4">
               The Ergodicity Advantage
@@ -148,7 +148,7 @@ export default function ScrollStackSection() {
                   }}
                 >
                   <div
-                    className={`${card.color} flex lg:flex-row flex-col gap-6 shadow-2xl p-8 h-full overflow-hidden`}
+                    className={`${card.color} flex lg:flex-row flex-col gap-6 shadow-2xl p-8 h-full max-lg:h-auto overflow-hidden`}
                   >
                     <div className="w-full lg:w-1/2 flex flex-col justify-between items-start z-10">
                       <div
@@ -157,7 +157,7 @@ export default function ScrollStackSection() {
                         {card.badge}
                       </div>
                       <div>
-                        <h3 className="text-5xl max-lg:text-3xl mt-5 text-deep-forest font-display font-bold leading-tight">
+                        <h3 className="text-5xl max-lg:text-3xl  text-deep-forest font-display font-bold leading-tight">
                           {card.title}
                         </h3>
                         <p className="mt-6 leading-relaxed text-lg md:text-xl text-deep-forest/80">
@@ -182,7 +182,7 @@ export default function ScrollStackSection() {
                       </button>
                     </div>
                     <div className="w-full lg:w-1/2 flex items-center justify-center relative">
-                      <div className="relative w-full h-full overflow-hidden">
+                      <div className="relative w-full max-lg:hidden h-full overflow-hidden">
                         <Image
                           src={card.image}
                           alt={card.title}

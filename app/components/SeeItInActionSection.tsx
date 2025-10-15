@@ -1,16 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function SeeItInActionSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
-  const diagramsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [expandedImage, setExpandedImage] = useState<number | null>(null);
 
   const diagrams = [
@@ -31,48 +24,6 @@ export default function SeeItInActionSection() {
     }
   ];
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate heading
-      gsap.from(headingRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 70%",
-          end: "top 20%",
-          toggleActions: "play none none reverse",
-        },
-        y: 60,
-        opacity: 0,
-        scale: 0.95,
-        duration: 1,
-        ease: "power3.out",
-      });
-
-      // Animate diagrams with stagger effect
-      diagramsRef.current.forEach((diagram, index) => {
-        if (diagram) {
-          gsap.from(diagram, {
-            scrollTrigger: {
-              trigger: diagram,
-              start: "top 85%",
-              end: "top 30%",
-              toggleActions: "play none none reverse",
-            },
-            y: 80,
-            opacity: 0,
-            scale: 0.9,
-            rotation: index % 2 === 0 ? -1 : 1,
-            duration: 0.8,
-            delay: index * 0.2,
-            ease: "back.out(1.2)",
-          });
-        }
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   // Handle ESC key to close modal
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -87,30 +38,27 @@ export default function SeeItInActionSection() {
 
   return (
     <section 
-      ref={sectionRef}
       className="relative py-24 px-6 bg-gradient-to-br from-pure-white to-slate-50"
     >
       <div className="max-w-7xl mx-auto">
         <h2 
-          ref={headingRef}
           className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
         >
           See It in Action
         </h2>
 
-        <div className="space-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {diagrams.map((diagram, index) => (
             <div
               key={index}
-              ref={(el) => { diagramsRef.current[index] = el; }}
               className="bg-white rounded-2xl shadow-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 group"
             >
               <div className="p-8">
-                <h3 className="text-2xl md:text-3xl font-display font-bold text-deep-forest mb-6 text-center">
+                <h3 className="text-xl md:text-2xl font-display font-bold text-deep-forest mb-6 text-center">
                   {diagram.title}
                 </h3>
                 <div 
-                  className="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden bg-gray-100 group-hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
+                  className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden bg-gray-100 group-hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
                   onClick={() => setExpandedImage(index)}
                   role="button"
                   tabIndex={0}
