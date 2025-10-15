@@ -1,6 +1,16 @@
+'use client';
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AdvantagesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const advantages = [
     {
       icon: "",
@@ -25,10 +35,52 @@ export default function AdvantagesSection() {
     },
   ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate heading
+      gsap.from(headingRef.current, {
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 70%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.out",
+      });
+
+      // Animate cards with stagger
+      cardsRef.current.forEach((card, index) => {
+        if (card) {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+              end: "top 30%",
+              toggleActions: "play none none reverse",
+            },
+            y: 80,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: "power3.out",
+          });
+        }
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative bg-white py-24 px-6">
+    <section ref={sectionRef} className="relative bg-white py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16">
+        <h2 
+          ref={headingRef}
+          className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
+        >
           Three Ways We Transform Your Risk Strategy
         </h2>
 
@@ -36,7 +88,8 @@ export default function AdvantagesSection() {
           {advantages.map((advantage, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
+              ref={(el) => { cardsRef.current[index] = el; }}
+              className="bg-white shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
