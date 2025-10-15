@@ -118,19 +118,19 @@ export default function ScrollStackSection() {
       style={{ minHeight: `${cards.length * 100}vh` }}
     >
       <div className="sticky top-0 h-screen flex items-start justify-center">
-        <div className="w-full max-w-3xl xl:max-w-7xl mx-auto px-6">
-          <div className="my-8 max-lg:my-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-4">
+        <div className="w-full max-w-3xl xl:max-w-7xl mx-auto px-4 xl:px-6">
+          <div className="my-4 xl:my-8 text-center">
+            <h2 className="text-3xl md:text-4xl xl:text-5xl font-display font-bold text-deep-forest mb-2 xl:mb-4">
               The Ergodicity Advantage
             </h2>
-            <p className="text-xl text-deep-forest/70 max-w-3xl mx-auto">
+            <p className="text-lg xl:text-xl text-deep-forest/70 max-w-3xl mx-auto">
               Transform your insurance strategy with four foundational pillars
             </p>
           </div>
 
-          <div className="relative" style={{ height: "600px" }}>
+          <div className="relative" style={{ height: "420px" }}>
             {cards.map((card, index) => {
-              const offset = index * 40;
+              const offset = index * 30;
               const isActive = index <= activeIndex;
               const scale = isActive ? 1 : 0.95;
               const opacity = isActive ? 1 : 0;
@@ -148,23 +148,23 @@ export default function ScrollStackSection() {
                   }}
                 >
                   <div
-                    className={`${card.color} flex lg:flex-row flex-col gap-6 shadow-2xl p-8 h-full max-lg:h-auto overflow-hidden`}
+                    className={`${card.color} flex lg:flex-row flex-col gap-4 xl:gap-6 shadow-2xl p-4 xl:p-8 h-full max-lg:h-auto overflow-hidden`}
                   >
-                    <div className="w-full lg:w-1/2 flex flex-col justify-between items-start z-10">
+                    <div className="w-full lg:w-1/2 flex flex-col justify-between  items-start z-10">
                       <div
-                        className={`${card.badgeColor} text-lg max-lg:hidden rounded-full px-6 py-2 ${card.badgeTextColor} font-semibold`}
+                        className={`${card.badgeColor} text-base xl:text-lg max-lg:hidden rounded-full px-4 xl:px-6 py-1.5 xl:py-2 ${card.badgeTextColor} font-semibold`}
                       >
                         {card.badge}
                       </div>
                       <div>
-                        <h3 className="text-5xl max-lg:text-3xl  text-deep-forest font-display font-bold leading-tight">
+                        <h3 className="text-3xl xl:text-5xl max-lg:text-3xl  text-deep-forest font-display font-bold leading-tight">
                           {card.title}
                         </h3>
-                        <p className="mt-6 leading-relaxed text-lg md:text-xl text-deep-forest/80">
+                        <p className="mt-3 xl:mt-6 leading-relaxed text-base xl:text-lg 2xl:text-xl text-deep-forest/80">
                           {card.description}
                         </p>
                       </div>
-                      <button className="flex flex-row gap-2 items-center cursor-pointer  mt-3 bg-deep-forest text-white text-lg px-8 py-3 hover:bg-sage-green transition-colors duration-300 group">
+                      <button className="flex flex-row gap-2 items-center cursor-pointer  mt-2 xl:mt-3 bg-deep-forest text-white text-base xl:text-lg px-6 xl:px-8 py-2.5 xl:py-3 hover:bg-sage-green transition-colors duration-300 group">
                         Learn More
                         <svg
                           className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
