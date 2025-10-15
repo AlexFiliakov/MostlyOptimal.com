@@ -117,19 +117,13 @@ export default function ScrollStackSection() {
       className="relative py-24 bg-white"
       style={{ minHeight: `${cards.length * 100}vh` }}
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center">
+      <div className="sticky top-0 h-screen flex items-start justify-center">
         <div className="w-full max-w-7xl mx-auto px-6">
-          <div className="mb-12 text-center">
-            <h2 
-              ref={headingRef}
-              className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-4"
-            >
+          <div className="my-8 max-lg:my-4 text-center">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-4">
               The Ergodicity Advantage
             </h2>
-            <p 
-              ref={subtitleRef}
-              className="text-xl text-deep-forest/70 max-w-3xl mx-auto"
-            >
+            <p className="text-xl text-deep-forest/70 max-w-3xl mx-auto">
               Transform your insurance strategy with four foundational pillars
             </p>
           </div>
@@ -146,29 +140,31 @@ export default function ScrollStackSection() {
                   key={card.id}
                   className="absolute inset-0 transition-all duration-700 ease-out"
                   style={{
-                    transform: `translateY(${isActive ? offset : 100}px) scale(${scale})`,
+                    transform: `translateY(${
+                      isActive ? offset : 100
+                    }px) scale(${scale})`,
                     opacity: opacity,
                     zIndex: cards.length + index,
                   }}
                 >
                   <div
-                    className={`${card.color} flex lg:flex-row flex-col gap-6 rounded-2xl shadow-2xl p-8 h-full overflow-hidden`}
+                    className={`${card.color} flex lg:flex-row flex-col gap-6 shadow-2xl p-8 h-full overflow-hidden`}
                   >
                     <div className="w-full lg:w-1/2 flex flex-col justify-between items-start z-10">
                       <div
-                        className={`${card.badgeColor} text-lg rounded-full px-6 py-2 ${card.badgeTextColor} font-semibold`}
+                        className={`${card.badgeColor} text-lg max-lg:hidden rounded-full px-6 py-2 ${card.badgeTextColor} font-semibold`}
                       >
                         {card.badge}
                       </div>
                       <div>
-                        <h3 className="text-5xl md:text-6xl mt-5 text-deep-forest font-display font-bold leading-tight">
+                        <h3 className="text-5xl max-lg:text-3xl mt-5 text-deep-forest font-display font-bold leading-tight">
                           {card.title}
                         </h3>
                         <p className="mt-6 leading-relaxed text-lg md:text-xl text-deep-forest/80">
                           {card.description}
                         </p>
                       </div>
-                      <button className="flex flex-row gap-2 items-center cursor-pointer rounded-lg mt-3 bg-deep-forest text-white text-lg px-8 py-3 hover:bg-sage-green transition-colors duration-300 group">
+                      <button className="flex flex-row gap-2 items-center cursor-pointer  mt-3 bg-deep-forest text-white text-lg px-8 py-3 hover:bg-sage-green transition-colors duration-300 group">
                         Learn More
                         <svg
                           className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"
@@ -186,7 +182,7 @@ export default function ScrollStackSection() {
                       </button>
                     </div>
                     <div className="w-full lg:w-1/2 flex items-center justify-center relative">
-                      <div className="relative w-full h-full rounded-xl overflow-hidden">
+                      <div className="relative w-full h-full overflow-hidden">
                         <Image
                           src={card.image}
                           alt={card.title}
@@ -206,4 +202,3 @@ export default function ScrollStackSection() {
     </section>
   );
 }
-

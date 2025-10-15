@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
@@ -128,16 +128,13 @@ export default function ErgodicitySection() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 
+          <h2
             ref={heading1Ref}
             className="text-4xl md:text-4xl font-display font-bold text-white mb-6"
           >
             Average outcomes don't apply to individual journeys
           </h2>
-          <p 
-            ref={text1Ref}
-            className="text-lg text-white/80 leading-relaxed"
-          >
+          <p ref={text1Ref} className="text-lg text-white/80 leading-relaxed">
             Traditional risk management commits a fundamental error: it assumes
             that the average outcome across many parallel scenarios applies to
             any single company's journey through time. This distinction between
@@ -163,21 +160,17 @@ export default function ErgodicitySection() {
               className="object-cover opacity-60"
               sizes="100vw"
             />
-            
           </div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 
+          <h2
             ref={heading2Ref}
             className="text-4xl md:text-4xl font-display font-bold text-white mb-6"
           >
             Understanding Ergodicity
           </h2>
-          <p 
-            ref={text2Ref}
-            className="text-lg text-white/80 leading-relaxed"
-          >
+          <p ref={text2Ref} className="text-lg text-white/80 leading-relaxed">
             <b>Ergodicity</b> is the mathematical principle that distinguishes
             between what happens to many companies on average versus what
             happens to YOUR company over time. Non-ergodic systems (like real
@@ -207,16 +200,13 @@ export default function ErgodicitySection() {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 
+          <h2
             ref={heading3Ref}
             className="text-3xl md:text-4xl font-display font-bold text-white mb-6"
           >
             First principles. Real trajectories. Actual growth.
           </h2>
-          <p 
-            ref={text3Ref}
-            className="text-lg text-white leading-relaxed"
-          >
+          <p ref={text3Ref} className="text-lg text-white leading-relaxed">
             Unlike conventional Monte Carlo simulations, which assume all paths
             are equally accessible, this engine recognizes that certain losses
             create absorbing barriers (points of no return where future
@@ -229,4 +219,3 @@ export default function ErgodicitySection() {
     </>
   );
 }
-

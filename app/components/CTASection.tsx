@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
@@ -85,43 +85,37 @@ export default function CTASection() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <h2 
+        <h2
           ref={headingRef}
           className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-6"
         >
           Ready to See Your True Path?
         </h2>
-        <p 
+        <p
           ref={textRef}
           className="text-xl text-deep-forest/80 mb-12 max-w-2xl mx-auto"
         >
           For corporate leaders ready to move beyond traditional actuarial
-          approaches, the Ergodicity Advantage offers a scientifically
-          rigorous yet intuitively accessible path forward.
+          approaches, the Ergodicity Advantage offers a scientifically rigorous
+          yet intuitively accessible path forward.
         </p>
 
-        <div 
+        <div
           ref={buttonsRef}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          className="flex flex-col sm:flex-row gap-4 max-lg:items-center justify-center"
         >
           {/* <a
             href="https://mostlyoptimal.com/tutorial"
             className="inline-block bg-sage-green hover:bg-sage-green/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
           > */}
-          <CustomButton>
-
-            Start Your Analysis
-          </CustomButton>
+          <CustomButton>Start Your Analysis</CustomButton>
           {/* <a
             href="https://mostlyoptimal.com/research"
             className="inline-block bg-transparent border-2 border-sage-green text-sage-green hover:bg-sage-green hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
           > */}
-          <CustomButton>
-            Research Paper
-          </CustomButton>
+          <CustomButton>Research Paper</CustomButton>
         </div>
       </div>
     </section>
   );
 }
-
