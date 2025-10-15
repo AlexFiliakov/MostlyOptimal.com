@@ -35,7 +35,7 @@ export default function ScrollStackSection() {
       description:
         "Leverage sophisticated Monte Carlo simulations and optimization algorithms to model complex loss distributions and understand the full spectrum of potential outcomes with statistical confidence.",
       color: "bg-[#e5e7e4]",
-      image: "/images/jigsaw.webp",
+      image: "/images/example_limit_analysis_padded.webp",
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ export default function ScrollStackSection() {
       description:
         "Design sophisticated multi-layer insurance programs with optimal attachment points, limits, and structures that maximize your company's long-term value and resilience.",
       color: "bg-[#d4e3df]",
-      image: "/images/compass.webp",
+      image: "/images/lloyds_reflection.webp",
     },
     {
       id: 4,
@@ -57,7 +57,7 @@ export default function ScrollStackSection() {
       description:
         "Track and validate your insurance strategy performance with comprehensive reporting, backtesting frameworks, and real-time business constraint monitoring for continuous improvement.",
       color: "bg-[#aec6c1]",
-      image: "/images/lightning_island.webp",
+      image: "/images/city_lightning.webp",
     },
   ];
 
@@ -120,17 +120,17 @@ export default function ScrollStackSection() {
       <div className="sticky top-0 h-screen flex items-start justify-center">
         <div className="w-full max-w-3xl xl:max-w-7xl mx-auto px-4 xl:px-6">
           <div className="my-4 xl:my-8 text-center">
-            <h2 className="text-3xl md:text-4xl xl:text-5xl font-display font-bold text-deep-forest mb-2 xl:mb-4">
+            <h2 ref={headingRef} className="text-3xl md:text-4xl xl:text-5xl font-display font-bold text-deep-forest mb-2 xl:mb-4">
               The Ergodicity Advantage
             </h2>
-            <p className="text-lg xl:text-xl text-deep-forest/70 max-w-3xl mx-auto">
+            <p ref={subtitleRef} className="text-lg xl:text-xl text-deep-forest/70 max-w-3xl mx-auto">
               Transform your insurance strategy with four foundational pillars
             </p>
           </div>
 
           <div className="relative" style={{ height: "420px" }}>
             {cards.map((card, index) => {
-              const offset = index * 30;
+              const offset = index * 15;
               const isActive = index <= activeIndex;
               const scale = isActive ? 1 : 0.95;
               const opacity = isActive ? 1 : 0;
@@ -138,6 +138,7 @@ export default function ScrollStackSection() {
               return (
                 <div
                   key={card.id}
+                  id={`card-${card.id}`}
                   className="absolute inset-0 transition-all duration-700 ease-out"
                   style={{
                     transform: `translateY(${
@@ -145,6 +146,7 @@ export default function ScrollStackSection() {
                     }px) scale(${scale})`,
                     opacity: opacity,
                     zIndex: cards.length + index,
+                    pointerEvents: isActive ? "auto" : "none",
                   }}
                 >
                   <div
@@ -164,7 +166,13 @@ export default function ScrollStackSection() {
                           {card.description}
                         </p>
                       </div>
-                      <button className="flex flex-row gap-2 items-center cursor-pointer  mt-2 xl:mt-3 bg-deep-forest text-white text-base xl:text-lg px-6 xl:px-8 py-2.5 xl:py-3 hover:bg-sage-green transition-colors duration-300 group">
+                      <button
+                        onClick={() => {
+                          const targetId = card.id === 4 ? 'average-outcomes' : `card-${card.id + 1}`;
+                          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }}
+                        className="flex flex-row gap-2 items-center cursor-pointer  mt-2 xl:mt-3 bg-deep-forest text-white text-base xl:text-lg px-6 xl:px-8 py-2.5 xl:py-3 hover:bg-sage-green transition-colors duration-300 group"
+                      >
                         Learn More
                         <svg
                           className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200"

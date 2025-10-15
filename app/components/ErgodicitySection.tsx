@@ -4,14 +4,14 @@ export default function ErgodicitySection() {
   return (
     <>
       {/* Problem Subsection */}
-      <section className="relative py-16 xl:py-24 px-4 xl:px-6 overflow-hidden">
+      <section id="average-outcomes" className="relative py-16 xl:py-24 px-4 xl:px-6 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-deep-forest">
           <div className="relative w-full h-full">
             <Image
               src="/images/forest_path.webp"
               alt="Highway"
               fill
-              className="object-cover opacity-60"
+              className="object-cover"
               sizes="100vw"
             />
           </div>
@@ -41,7 +41,7 @@ export default function ErgodicitySection() {
               src="/images/delta.webp"
               alt="Nile Delta"
               fill
-              className="object-cover opacity-60"
+              className="object-cover opacity-80"
               sizes="100vw"
             />
           </div>
@@ -67,13 +67,13 @@ export default function ErgodicitySection() {
         <div className="absolute inset-0 z-0 bg-deep-forest">
           <div className="relative w-full h-full">
             <Image
-              src="/images/city_lightning.webp"
+              src="/images/lightning_island.webp"
               alt="City Lightning"
               fill
-              className="object-cover opacity-60"
+              className="object-cover opacity-80"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-lightning-blue/10 to-electric-teal/10" />
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-lightning-blue/10 to-electric-teal/10" /> */}
           </div>
         </div>
 

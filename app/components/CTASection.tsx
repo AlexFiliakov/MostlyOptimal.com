@@ -108,12 +108,12 @@ export default function CTASection() {
             href="https://mostlyoptimal.com/tutorial"
             className="inline-block bg-sage-green hover:bg-sage-green/90 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
           > */}
-          <CustomButton>Start Your Analysis</CustomButton>
+          <CustomButton onClick={() => window.open("https://mostlyoptimal.com/tutorial", "_blank")}>Start Your Analysis</CustomButton>
           {/* <a
             href="https://mostlyoptimal.com/research"
             className="inline-block bg-transparent border-2 border-sage-green text-sage-green hover:bg-sage-green hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
           > */}
-          <CustomButton>Research Paper</CustomButton>
+          <CustomButton onClick={() => window.open("https://mostlyoptimal.com/research", "_blank")}>Research Paper</CustomButton>
         </div>
       </div>
     </section>
