@@ -4,6 +4,7 @@ import ErgodicitySection from "./components/ErgodicitySection";
 import ScrollStackSection from "./components/ScrollStackSection";
 import AdvantagesSection from "./components/AdvantagesSection";
 import FeaturesSection from "./components/FeaturesSection";
+import SeeItInActionSection from "./components/SeeItInActionSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import Spacer from "./components/Spacer";
@@ -18,6 +19,7 @@ export default function Home() {
       <ErgodicitySection />
       <AdvantagesSection />
       <FeaturesSection />
+      <SeeItInActionSection />
       <CTASection />
       <Footer />
     </main>

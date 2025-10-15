@@ -57,7 +57,7 @@ export default function ScrollStackSection() {
       description:
         "Track and validate your insurance strategy performance with comprehensive reporting, backtesting frameworks, and real-time business constraint monitoring for continuous improvement.",
       color: "bg-[#aec6c1]",
-      image: "/images/forest_path.webp",
+      image: "/images/lightning_island.webp",
     },
   ];
 
