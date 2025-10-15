@@ -43,7 +43,7 @@ const StyledWrapper = styled.div`
    letter-spacing: 0.05rem;
    border: 1px solid #2A4D3A;
    padding: 0.8rem 2.1rem;
-   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 531.28 200'%3E%3Cdefs%3E%3Cstyle%3E .shape %7B fill: %2300B4A6 /* fill: %232A4D3A; */ %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpolygon class='shape' points='415.81 200 0 200 115.47 0 531.28 0 415.81 200' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 531.28 200'%3E%3Cdefs%3E%3Cstyle%3E .shape %7B fill: %23D4AF37 /* fill: %232A4D3A; */ %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpolygon class='shape' points='415.81 200 0 200 115.47 0 531.28 0 415.81 200' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
    background-color: #2A4D3A;
    background-size: 200%;
    background-position: 200%;
@@ -55,7 +55,7 @@ const StyledWrapper = styled.div`
   }
 
   .primary-button:hover {
-   border: 1px solid #00B4A6;
+   border: 1px solid #D4AF37;
    color: white;
    background-position: 40%;
   }
@@ -82,7 +82,7 @@ const StyledWrapper = styled.div`
   .primary-button:after {
    content: "";
    position: absolute;
-   background-color: #00B4A6;
+   background-color: #D4AF37;
    width: 0.3rem;
    height: 0.3rem;
    bottom: -1px;
