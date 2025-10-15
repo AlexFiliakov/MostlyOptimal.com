@@ -105,24 +105,26 @@ export default function FeaturesSection() {
       ref={sectionRef}
       className="relative py-24 px-6 bg-cover bg-center"
       style={{
-        backgroundImage: "url('/images/snow_tracks.webp')",
+        backgroundImage: "url('/images/highway.webp')",
         backgroundAttachment: "fixed"
       }}
     >
       <div className="max-w-7xl mx-auto">
-        <h2 
-          ref={headingRef}
-          className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
-        >
-          Application Features
-        </h2>
+        <div className="relative z-10 mx-auto w-fit text-center bg-white bg-opacity-60 rounded-xl backdrop-blur-sm px-4 pt-4 pb-6 mb-16">
+          <h2 
+            ref={headingRef}
+            className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest"
+          >
+            Application&nbsp;Features
+          </h2>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div
               key={index}
               ref={(el) => { cardsRef.current[index] = el; }}
-              className="bg-white shadow-xl overflow-hidden bg-opacity-65 backdrop-blur-sm group hover:shadow-2xl transition-all duration-300"
+              className="bg-white shadow-xl overflow-hidden bg-opacity-75 backdrop-blur-sm rounded-xl group hover:shadow-2xl transition-all duration-300"
             >
               <div className="p-6">
                 <h3 className="text-2xl font-display font-bold text-deep-forest mb-3">
