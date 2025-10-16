@@ -4,8 +4,21 @@ import Image from "next/image";
 import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-// Dynamically import Plotly to avoid SSR issues
-const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
+// Create a factory function to use the full Plotly library
+const createPlotlyComponent = async () => {
+  const Plotly = await import('plotly.js-dist-min');
+  const createPlotlyComponent = await import('react-plotly.js/factory');
+  return createPlotlyComponent.default(Plotly);
+};
+
+// Dynamically import Plotly with full library for 3D support
+const Plot = dynamic(
+  () => createPlotlyComponent(),
+  { 
+    ssr: false,
+    loading: () => <div className="flex items-center justify-center h-full"><div className="text-xl">Loading plot...</div></div>
+  }
+);
 
 const SurfacePlotExtremeShape = () => {
   const [data, setData] = useState<any>(null);
@@ -269,8 +282,14 @@ const SurfacePlotExtremeShape = () => {
         <Plot
           data={plotData}
           layout={plotLayout}
-          config={{ responsive: true }}
+          config={{ 
+            responsive: true,
+            displayModeBar: true,
+            displaylogo: false,
+            modeBarButtonsToRemove: ['toImage']
+          }}
           style={{ width: '100%', height: 'calc(100vh - 200px)' }}
+          useResizeHandler={true}
         />
       )}
     </div>
