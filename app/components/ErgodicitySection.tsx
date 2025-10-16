@@ -4,7 +4,7 @@ export default function ErgodicitySection() {
   return (
     <>
       {/* Problem Subsection */}
-      <section className="relative py-16 xl:py-24 px-4 xl:px-6 overflow-hidden">
+      <section id="ergodicity-intro" className="relative py-16 xl:py-24 px-4 xl:px-6 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-deep-forest">
           <div className="relative w-full h-full">
             <Image
