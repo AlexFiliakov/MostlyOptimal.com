@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { image } from "framer-motion/client";
 
 export default function SeeItInActionSection() {
   const [expandedImage, setExpandedImage] = useState<number | null>(null);
@@ -21,6 +22,11 @@ export default function SeeItInActionSection() {
       title: "Explore which assumptions matter most for your coverage strategy",
       image: "/images/example_configurations_1.gif",
       alt: "Insurance configuration analysis example"
+    },
+    {
+      title: "Identify strategies that stay optimal despite uncertain loss patterns",
+      image: "/images/under_construction.png",
+      alt: "Insurance strategy robustness example"
     }
   ];
 
@@ -58,7 +64,7 @@ export default function SeeItInActionSection() {
                   {diagram.title}
                 </h3>
                 <div 
-                  className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden bg-gray-100 group-hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
+                  className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden bg-white group-hover:scale-[1.02] transition-transform duration-500 cursor-pointer"
                   onClick={() => setExpandedImage(index)}
                   role="button"
                   tabIndex={0}

@@ -70,7 +70,7 @@ export default function HeroSection() {
         </p>
 
         <div ref={buttonContainerRef} className="flex flex-col items-center gap-8 mb-16">
-          <CustomButton>Discover Your Path</CustomButton>
+          <CustomButton onClick={() => document.getElementById('card-1')?.scrollIntoView({ behavior: 'smooth' })}>Discover Your Path</CustomButton>
           
           <div 
             ref={scrollIndicatorRef}
