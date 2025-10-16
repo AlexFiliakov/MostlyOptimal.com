@@ -61,6 +61,22 @@ export default function ScrollStackSection() {
     },
   ];
 
+  const scrollToCard = (cardIndex: number) => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      const sectionTop = window.scrollY + rect.top;
+      const sectionHeight = rect.height - window.innerHeight;
+      // Add extra offset to ensure the card fully activates
+      const cardScrollAmount = sectionHeight / cards.length;
+      const targetScroll = sectionTop + (cardScrollAmount * cardIndex) + (cardScrollAmount * 0.3);
+      
+      window.scrollTo({
+        top: targetScroll,
+        behavior: "smooth",
+      });
+    }
+  };
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       // Animate heading and subtitle on scroll
@@ -147,6 +163,7 @@ export default function ScrollStackSection() {
                     opacity: opacity,
                     zIndex: cards.length + index,
                     pointerEvents: isActive ? "auto" : "none",
+                    pointerEvents: index === activeIndex ? 'auto' : 'none',
                   }}
                 >
                   <div
@@ -166,10 +183,17 @@ export default function ScrollStackSection() {
                           {card.description}
                         </p>
                       </div>
-                      <button
+                      <button 
                         onClick={() => {
-                          const targetId = card.id === 4 ? 'average-outcomes' : `card-${card.id + 1}`;
-                          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          if (index < cards.length - 1) {
+                            scrollToCard(index + 1);
+                          } else {
+                            // Last card - scroll to next section
+                            const nextSection = document.getElementById('ergodicity-intro');
+                            if (nextSection) {
+                              nextSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }
                         }}
                         className="flex flex-row gap-2 items-center cursor-pointer  mt-2 xl:mt-3 bg-deep-forest text-white text-base xl:text-lg px-6 xl:px-8 py-2.5 xl:py-3 hover:bg-sage-green transition-colors duration-300 group"
                       >
