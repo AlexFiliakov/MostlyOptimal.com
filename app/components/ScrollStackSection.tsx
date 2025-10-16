@@ -163,7 +163,6 @@ export default function ScrollStackSection() {
                     opacity: opacity,
                     zIndex: cards.length + index,
                     pointerEvents: isActive ? "auto" : "none",
-                    pointerEvents: index === activeIndex ? 'auto' : 'none',
                   }}
                 >
                   <div
