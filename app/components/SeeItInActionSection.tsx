@@ -25,8 +25,8 @@ export default function SeeItInActionSection() {
     },
     {
       title: "Identify strategies that stay optimal despite uncertain loss patterns",
-      image: "/images/under_construction.png",
-      alt: "Insurance strategy robustness example"
+      image: "/images/example_extreme_shape_surface_plot.png",
+      alt: "Surface plot showing optimal insurance strategies under various loss assumptions"
     }
   ];
 

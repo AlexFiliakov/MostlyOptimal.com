@@ -1,3 +1,5 @@
+'use client';
+
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import ErgodicitySection from "./components/ErgodicitySection";
@@ -8,6 +10,7 @@ import SeeItInActionSection from "./components/SeeItInActionSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import Spacer from "./components/Spacer";
+import PlotlySurfaceViewerExtremeShape from "./components/PlotlySurfaceViewerExtremeShape";
 
 export default function Home() {
   return (
