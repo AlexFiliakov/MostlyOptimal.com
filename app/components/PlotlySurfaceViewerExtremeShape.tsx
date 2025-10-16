@@ -74,38 +74,49 @@ const SurfacePlotExtremeShape = () => {
     return rows;
   };
 
-  // Simple bilinear interpolation
+  // Inverse distance weighting interpolation
   const interpolateGrid = (points: any[], gridSize = 50) => {
     if (points.length === 0) return { x: [], y: [], z: [] };
 
     const xValues = points.map((p: any) => p.x);
     const yValues = points.map((p: any) => p.y);
-    const zValues = points.map((p: any) => p.z);
 
     const xMin = Math.min(...xValues);
     const xMax = Math.max(...xValues);
     const yMin = Math.min(...yValues);
     const yMax = Math.max(...yValues);
 
-    const xi = [];
-    const yi = [];
-    const zi = [];
+    // Create log-spaced grid for x and y axes (since we're using log scale)
+    const logXMin = Math.log10(xMin);
+    const logXMax = Math.log10(xMax);
+    const logYMin = Math.log10(yMin);
+    const logYMax = Math.log10(yMax);
+
+    const xi = Array.from({length: gridSize}, (_, i) => 
+      Math.pow(10, logXMin + (i / (gridSize - 1)) * (logXMax - logXMin))
+    );
+    const yi = Array.from({length: gridSize}, (_, i) => 
+      Math.pow(10, logYMin + (i / (gridSize - 1)) * (logYMax - logYMin))
+    );
+
+    const zi: number[][] = [];
 
     for (let i = 0; i < gridSize; i++) {
-      const x = xMin + (i / (gridSize - 1)) * (xMax - xMin);
-      const row = [];
+      const row: number[] = [];
       for (let j = 0; j < gridSize; j++) {
-        const y = yMin + (j / (gridSize - 1)) * (yMax - yMin);
+        const x = xi[i];
+        const y = yi[j];
         
-        // Inverse distance weighting interpolation
+        // Inverse distance weighting interpolation in log space
         let weightSum = 0;
         let valueSum = 0;
         const power = 2;
         const epsilon = 1e-10;
 
         for (let k = 0; k < points.length; k++) {
-          const dx = x - points[k].x;
-          const dy = y - points[k].y;
+          // Calculate distance in log space for better interpolation with log-scaled axes
+          const dx = Math.log10(x) - Math.log10(points[k].x);
+          const dy = Math.log10(y) - Math.log10(points[k].y);
           const distance = Math.sqrt(dx * dx + dy * dy) + epsilon;
           const weight = 1 / Math.pow(distance, power);
           
@@ -115,12 +126,10 @@ const SurfacePlotExtremeShape = () => {
 
         row.push(valueSum / weightSum);
       }
-      xi.push(x);
-      yi.push(yMin + (i / (gridSize - 1)) * (yMax - yMin));
       zi.push(row);
     }
 
-    return { x: xi, y: Array.from({length: gridSize}, (_, i) => yMin + (i / (gridSize - 1)) * (yMax - yMin)), z: zi };
+    return { x: xi, y: yi, z: zi };
   };
 
   // Update plot when data or selections change
