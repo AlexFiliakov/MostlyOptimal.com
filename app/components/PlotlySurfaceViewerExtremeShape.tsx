@@ -1,13 +1,20 @@
+'use client';
+
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from 'react';
-import Plotly from 'plotly.js-dist';
+import dynamic from 'next/dynamic';
+
+// Dynamically import Plotly to avoid SSR issues
+const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
 const SurfacePlotExtremeShape = () => {
   const plotRef = useRef(null);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [currentMetric, setCurrentMetric] = useState(0);
   const [xShapeRangeIndex, setXShapeRangeIndex] = useState(19);
+  const [plotData, setPlotData] = useState<any[]>([]);
+  const [plotLayout, setPlotLayout] = useState<any>({});
 
   const zMetrics = [
     { key: 'growth_rate_mean', label: 'Growth Rate Mean' },
@@ -35,15 +42,15 @@ const SurfacePlotExtremeShape = () => {
     loadData();
   }, []);
 
-  const parseCSV = (csv) => {
+  const parseCSV = (csv: string) => {
     const lines = csv.trim().split('\n');
     const headers = lines[0].split(',');
-    const rows = [];
+    const rows: any[] = [];
     
     for (let i = 1; i < lines.length; i++) {
       const values = lines[i].split(',');
-      const row = {};
-      headers.forEach((header, idx) => {
+      const row: any = {};
+      headers.forEach((header: string, idx: number) => {
         const trimmedHeader = header.trim();
         row[trimmedHeader] = trimmedHeader === 'Ded' || trimmedHeader === 'Pol_Lim' 
           ? parseInt(values[idx]) 
@@ -55,12 +62,12 @@ const SurfacePlotExtremeShape = () => {
   };
 
   // Simple bilinear interpolation
-  const interpolateGrid = (points, gridSize = 50) => {
+  const interpolateGrid = (points: any[], gridSize = 50) => {
     if (points.length === 0) return { x: [], y: [], z: [] };
 
-    const xValues = points.map(p => p.x);
-    const yValues = points.map(p => p.y);
-    const zValues = points.map(p => p.z);
+    const xValues = points.map((p: any) => p.x);
+    const yValues = points.map((p: any) => p.y);
+    const zValues = points.map((p: any) => p.z);
 
     const xMin = Math.min(...xValues);
     const xMax = Math.max(...xValues);
@@ -107,15 +114,15 @@ const SurfacePlotExtremeShape = () => {
   useEffect(() => {
     if (!data || !plotRef.current) return;
 
-    const xShapeMin = Math.min(...data.map(d => d.X_Shape));
-    const xShapeMax = Math.max(...data.map(d => d.X_Shape));
+    const xShapeMin = Math.min(...data.map((d: any) => d.X_Shape));
+    const xShapeMax = Math.max(...data.map((d: any) => d.X_Shape));
     
     // Create X_Shape ranges
     const nSteps = 20;
     const xShapeUpper = xShapeMin + ((xShapeRangeIndex + 1) / nSteps) * (xShapeMax - xShapeMin);
 
     // Filter data for current X_Shape range
-    const filteredData = data.filter(d => 
+    const filteredData = data.filter((d: any) => 
       d.X_Shape >= xShapeMin && d.X_Shape <= xShapeUpper
     );
 
@@ -123,7 +130,7 @@ const SurfacePlotExtremeShape = () => {
 
     // Prepare data points for interpolation
     const metric = zMetrics[currentMetric].key;
-    const points = filteredData.map(d => ({
+    const points = filteredData.map((d: any) => ({
       x: d.Ded,
       y: d.Pol_Lim,
       z: d[metric]
@@ -179,7 +186,9 @@ const SurfacePlotExtremeShape = () => {
       margin: { l: 0, r: 0, b: 0, t: 80 }
     };
 
-    Plotly.newPlot(plotRef.current, [trace], layout, { responsive: true });
+    // Store plot data in state instead of calling Plotly.newPlot directly
+    setPlotData([trace]);
+    setPlotLayout(layout);
   }, [data, currentMetric, xShapeRangeIndex]);
 
   if (loading) {
@@ -207,8 +216,8 @@ const SurfacePlotExtremeShape = () => {
     );
   }
 
-  const xShapeMin = Math.min(...data.map(d => d.X_Shape));
-  const xShapeMax = Math.max(...data.map(d => d.X_Shape));
+  const xShapeMin = Math.min(...data.map((d: any) => d.X_Shape));
+  const xShapeMax = Math.max(...data.map((d: any) => d.X_Shape));
   const nSteps = 20;
   const currentXShapeMax = xShapeMin + ((xShapeRangeIndex + 1) / nSteps) * (xShapeMax - xShapeMin);
 
@@ -249,7 +258,14 @@ const SurfacePlotExtremeShape = () => {
         </div>
       </div>
 
-      <div ref={plotRef} className="w-full" style={{ height: 'calc(100vh - 200px)' }} />
+      {plotData.length > 0 && (
+        <Plot
+          data={plotData}
+          layout={plotLayout}
+          config={{ responsive: true }}
+          style={{ width: '100%', height: 'calc(100vh - 200px)' }}
+        />
+      )}
     </div>
   );
 };
