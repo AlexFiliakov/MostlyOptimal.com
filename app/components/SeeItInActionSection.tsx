@@ -38,7 +38,7 @@ export default function SeeItInActionSection() {
     },
     {
       title: "Identify strategies that stay optimal despite uncertain loss patterns",
-      image: "/images/example_extreme_shape_surface_plot.png",
+      image: "/images/example_extreme_shape_surface_plot_animation.gif",
       alt: "Surface plot showing optimal insurance strategies under various loss assumptions"
     }
   ];

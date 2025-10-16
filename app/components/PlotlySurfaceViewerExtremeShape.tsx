@@ -28,6 +28,9 @@ const SurfacePlotExtremeShape = () => {
   const [plotData, setPlotData] = useState<any[]>([]);
   const [plotLayout, setPlotLayout] = useState<any>({});
   const [isPlotReady, setIsPlotReady] = useState(false);
+  const [cameraState, setCameraState] = useState<any>({
+    eye: { x: 1.5, y: 1.5, z: 1.3 }
+  });
 
   const zMetrics = [
     { key: 'growth_rate_mean', label: 'Growth Rate Mean' },
@@ -60,6 +63,7 @@ const SurfacePlotExtremeShape = () => {
     const headers = lines[0].split(',');
     const rows: any[] = [];
     
+    // Parse the raw data
     for (let i = 1; i < lines.length; i++) {
       const values = lines[i].split(',');
       const row: any = {};
@@ -150,9 +154,63 @@ const SurfacePlotExtremeShape = () => {
 
     if (filteredData.length < 3) return;
 
+    // Aggregate rows by summing values for each unique combination Ded, and Pol_Lim over X_Shape
+    const aggregatedData = filteredData.reduce((acc: any[], curr: any) => {
+      const existing = acc.find(item => item.Ded === curr.Ded && item.Pol_Lim === curr.Pol_Lim);
+      if (existing) {
+        zMetrics.forEach(metric => {
+          existing[metric.key] += curr[metric.key];
+        });
+      // After summing, convert to average/median per metric over all X_Shape for the (Ded, Pol_Lim) group
+      zMetrics.forEach(({ key }) => {
+        const currVal = curr[key];
+
+        // Average for mean and 5% CTE
+        if (key === 'growth_rate_mean' || key === 'growth_rate_cte_q5.0') {
+          const sumKey = `__sum_${key}`;
+          const countKey = `__count_${key}`;
+
+          if (typeof existing[sumKey] !== 'number') {
+            // First duplicate encountered: existing[key] currently equals prev + curr due to the += above
+            existing[sumKey] = existing[key];
+            existing[countKey] = 2;
+          } else {
+            existing[sumKey] += currVal;
+            existing[countKey] += 1;
+          }
+
+          existing[key] = existing[sumKey] / existing[countKey];
+        }
+
+        // Median for q50
+        if (key === 'growth_rate_q50') {
+          const arrKey = `__vals_${key}`;
+
+          if (!Array.isArray(existing[arrKey])) {
+            // First duplicate: reconstruct the two initial values
+            const prev = existing[key] - currVal; // since existing[key] == prev + curr from += above
+            existing[arrKey] = [prev, currVal];
+          } else {
+            existing[arrKey].push(currVal);
+          }
+
+          const sorted = [...existing[arrKey]].sort((a, b) => a - b);
+          const mid = Math.floor(sorted.length / 2);
+          const median =
+            sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
+
+          existing[key] = median;
+        }
+      });
+      } else {
+        acc.push({ ...curr });
+      }
+      return acc;
+    }, []);
+
     // Prepare data points for interpolation
     const metric = zMetrics[currentMetric].key;
-    const points = filteredData.map((d: any) => ({
+    const points = aggregatedData.map((d: any) => ({
       x: d.Ded,
       y: d.Pol_Lim,
       z: d[metric]
@@ -200,9 +258,7 @@ const SurfacePlotExtremeShape = () => {
           gridcolor: 'lightgray' 
         },
 
-        camera: {
-          eye: { x: 1.5, y: 1.5, z: 1.3 }
-        }
+        camera: cameraState
       },
       height: 600,
       margin: { l: 0, r: 0, b: 0, t: 80 }
@@ -299,6 +355,12 @@ const SurfacePlotExtremeShape = () => {
           }}
           style={{ width: '100%', height: '600px' }}
           useResizeHandler={true}
+          onRelayout={(event: any) => {
+            // Capture camera position changes when user rotates the plot
+            if (event['scene.camera']) {
+              setCameraState(event['scene.camera']);
+            }
+          }}
         />
       )}
     </div>
