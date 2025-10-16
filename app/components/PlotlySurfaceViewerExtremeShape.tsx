@@ -236,16 +236,16 @@ const SurfacePlotExtremeShape = () => {
   const currentXShapeMax = xShapeMin + ((xShapeRangeIndex + 1) / nSteps) * (xShapeMax - xShapeMin);
 
   return (
-    <div className="w-full h-screen bg-white p-4">
-      <div id="selectors" className="mb-4 flex gap-8 items-start">
+    <div className="w-full h-full bg-white p-4 overflow-auto">
+      <div id="selectors" className="mb-4 flex flex-wrap gap-4 items-start">
         <div className="flex-shrink-0">
           <label className="block text-sm font-semibold mb-2">Performance Metric:</label>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {zMetrics.map((metric, idx) => (
               <button
                 key={metric.key}
                 onClick={() => setCurrentMetric(idx)}
-                className={`px-4 py-2 rounded ${
+                className={`px-3 py-2 rounded text-sm ${
                   currentMetric === idx
                     ? 'bg-blue-600 text-white'
                     : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -257,7 +257,7 @@ const SurfacePlotExtremeShape = () => {
           </div>
         </div>
 
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-[250px]">
           <label className="block text-sm font-semibold mb-2">
             Tail Shape Maximum: ≤ {currentXShapeMax.toFixed(2)}
           </label>
@@ -273,7 +273,7 @@ const SurfacePlotExtremeShape = () => {
       </div>
 
       {!isPlotReady && (
-        <div className="flex items-center justify-center" style={{ height: 'calc(100vh - 200px)' }}>
+        <div className="flex items-center justify-center" style={{ height: '600px' }}>
           <div className="text-xl">Preparing plot...</div>
         </div>
       )}
@@ -288,7 +288,7 @@ const SurfacePlotExtremeShape = () => {
             displaylogo: false,
             modeBarButtonsToRemove: ['toImage']
           }}
-          style={{ width: '100%', height: 'calc(100vh - 200px)' }}
+          style={{ width: '100%', height: '600px' }}
           useResizeHandler={true}
         />
       )}

@@ -2,7 +2,20 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { image } from "framer-motion/client";
+import dynamic from 'next/dynamic';
+
+// Dynamically import the interactive surface plot component
+const SurfacePlotExtremeShape = dynamic(
+  () => import('./PlotlySurfaceViewerExtremeShape'),
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="flex items-center justify-center h-full">
+        <div className="text-xl text-white">Loading interactive plot...</div>
+      </div>
+    )
+  }
+);
 
 export default function SeeItInActionSection() {
   const [expandedImage, setExpandedImage] = useState<number | null>(null);
@@ -88,39 +101,52 @@ export default function SeeItInActionSection() {
         </div>
       </div>
 
-      {/* Image Modal */}
+      {/* Modal - Interactive or Image */}
       {expandedImage !== null && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setExpandedImage(null)}
           role="dialog"
           aria-modal="true"
-          aria-label="Expanded image view"
+          aria-label={expandedImage === 3 ? "Interactive surface plot" : "Expanded image view"}
         >
           <button
             className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors p-2 bg-black/50 rounded-full hover:bg-black/70 z-10"
             onClick={() => setExpandedImage(null)}
-            aria-label="Close expanded image"
+            aria-label="Close modal"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <div 
-            className="relative w-full h-full max-w-7xl max-h-[90vh]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={diagrams[expandedImage].image}
-              alt={diagrams[expandedImage].alt}
-              fill
-              className="object-contain"
-              quality={100}
-            />
-          </div>
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-sm md:text-base bg-black/50 px-4 py-2 rounded-full">
-            {diagrams[expandedImage].title}
-          </p>
+          
+          {/* Render interactive component for surface plot (index 3), otherwise show image */}
+          {expandedImage === 3 ? (
+            <div 
+              className="relative w-full h-full max-w-7xl max-h-[90vh] bg-white rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <SurfacePlotExtremeShape />
+            </div>
+          ) : (
+            <>
+              <div 
+                className="relative w-full h-full max-w-7xl max-h-[90vh]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Image
+                  src={diagrams[expandedImage].image}
+                  alt={diagrams[expandedImage].alt}
+                  fill
+                  className="object-contain"
+                  quality={100}
+                />
+              </div>
+              <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-sm md:text-base bg-black/50 px-4 py-2 rounded-full">
+                {diagrams[expandedImage].title}
+              </p>
+            </>
+          )}
         </div>
       )}
     </section>
