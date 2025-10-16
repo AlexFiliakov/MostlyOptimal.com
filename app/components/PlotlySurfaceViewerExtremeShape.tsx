@@ -1,20 +1,20 @@
 'use client';
 
 import Image from "next/image";
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
 // Dynamically import Plotly to avoid SSR issues
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
 const SurfacePlotExtremeShape = () => {
-  const plotRef = useRef(null);
   const [data, setData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [currentMetric, setCurrentMetric] = useState(0);
   const [xShapeRangeIndex, setXShapeRangeIndex] = useState(19);
   const [plotData, setPlotData] = useState<any[]>([]);
   const [plotLayout, setPlotLayout] = useState<any>({});
+  const [isPlotReady, setIsPlotReady] = useState(false);
 
   const zMetrics = [
     { key: 'growth_rate_mean', label: 'Growth Rate Mean' },
@@ -112,7 +112,7 @@ const SurfacePlotExtremeShape = () => {
 
   // Update plot when data or selections change
   useEffect(() => {
-    if (!data || !plotRef.current) return;
+    if (!data) return;
 
     const xShapeMin = Math.min(...data.map((d: any) => d.X_Shape));
     const xShapeMax = Math.max(...data.map((d: any) => d.X_Shape));
@@ -189,7 +189,8 @@ const SurfacePlotExtremeShape = () => {
     // Store plot data in state instead of calling Plotly.newPlot directly
     setPlotData([trace]);
     setPlotLayout(layout);
-  }, [data, currentMetric, xShapeRangeIndex]);
+    setIsPlotReady(true);
+  }, [data, currentMetric, xShapeRangeIndex, zMetrics]);
 
   if (loading) {
     return (
@@ -258,7 +259,13 @@ const SurfacePlotExtremeShape = () => {
         </div>
       </div>
 
-      {plotData.length > 0 && (
+      {!isPlotReady && (
+        <div className="flex items-center justify-center" style={{ height: 'calc(100vh - 200px)' }}>
+          <div className="text-xl">Preparing plot...</div>
+        </div>
+      )}
+      
+      {isPlotReady && plotData.length > 0 && (
         <Plot
           data={plotData}
           layout={plotLayout}
