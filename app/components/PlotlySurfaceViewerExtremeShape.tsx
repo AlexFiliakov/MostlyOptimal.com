@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import dynamic from 'next/dynamic';
 
 // Create a factory function to use the full Plotly library
@@ -16,9 +16,18 @@ const Plot = dynamic(
   () => createPlotlyComponent(),
   { 
     ssr: false,
-    loading: () => <div className="flex items-center justify-center h-full"><div className="text-xl">Loading plot...</div></div>
+    loading: () => (
+      <div className="flex items-center justify-center h-full"><div className="text-xl">Loading plot...</div></div>
+    )
   }
 );
+
+// Define metrics outside component to prevent unnecessary re-renders
+const zMetrics = [
+  { key: 'growth_rate_mean', label: 'Growth Rate Mean' },
+  { key: 'growth_rate_q50', label: 'Growth Rate Median' },
+  { key: 'growth_rate_cte_q5.0', label: 'Growth Rate 5% CTE' }
+];
 
 const SurfacePlotExtremeShape = () => {
   const [data, setData] = useState<any>(null);
@@ -28,15 +37,11 @@ const SurfacePlotExtremeShape = () => {
   const [plotData, setPlotData] = useState<any[]>([]);
   const [plotLayout, setPlotLayout] = useState<any>({});
   const [isPlotReady, setIsPlotReady] = useState(false);
-  const [cameraState, setCameraState] = useState<any>({
+  
+  // Use a ref to track camera state without triggering re-renders
+  const cameraStateRef = useRef<any>({
     eye: { x: 1.5, y: 1.5, z: 1.3 }
   });
-
-  const zMetrics = [
-    { key: 'growth_rate_mean', label: 'Growth Rate Mean' },
-    { key: 'growth_rate_q50', label: 'Growth Rate Median' },
-    { key: 'growth_rate_cte_q5.0', label: 'Growth Rate 5% CTE' }
-  ];
 
   // Load and process CSV data
   useEffect(() => {
@@ -136,9 +141,9 @@ const SurfacePlotExtremeShape = () => {
     return { x: xi, y: yi, z: zi };
   };
 
-  // Update plot when data or selections change
-  useEffect(() => {
-    if (!data) return;
+  // Memoize filtered and aggregated data - only recalculate when xShapeRangeIndex changes
+  const aggregatedData = useMemo(() => {
+    if (!data) return null;
 
     const xShapeMin = Math.min(...data.map((d: any) => d.X_Shape));
     const xShapeMax = Math.max(...data.map((d: any) => d.X_Shape));
@@ -152,10 +157,10 @@ const SurfacePlotExtremeShape = () => {
       d.X_Shape >= xShapeMin && d.X_Shape <= xShapeUpper
     );
 
-    if (filteredData.length < 3) return;
+    if (filteredData.length < 3) return null;
 
     // Aggregate rows by summing values for each unique combination Ded, and Pol_Lim over X_Shape
-    const aggregatedData = filteredData.reduce((acc: any[], curr: any) => {
+    const aggregated = filteredData.reduce((acc: any[], curr: any) => {
       const existing = acc.find(item => item.Ded === curr.Ded && item.Pol_Lim === curr.Pol_Lim);
       if (existing) {
         zMetrics.forEach(metric => {
@@ -208,16 +213,33 @@ const SurfacePlotExtremeShape = () => {
       return acc;
     }, []);
 
-    // Prepare data points for interpolation
-    const metric = zMetrics[currentMetric].key;
-    const points = aggregatedData.map((d: any) => ({
-      x: d.Ded,
-      y: d.Pol_Lim,
-      z: d[metric]
-    }));
+    return aggregated;
+  }, [data, xShapeRangeIndex]);
 
-    // Interpolate to create smooth surface
-    const gridData = interpolateGrid(points, 40);
+  // Memoize interpolated grids for all metrics - only recalculate when aggregatedData changes
+  const interpolatedGrids = useMemo(() => {
+    if (!aggregatedData) return null;
+
+    const grids: Record<string, { x: number[], y: number[], z: number[][] }> = {};
+    
+    zMetrics.forEach(({ key }) => {
+      const points = aggregatedData.map((d: any) => ({
+        x: d.Ded,
+        y: d.Pol_Lim,
+        z: d[key]
+      }));
+      grids[key] = interpolateGrid(points, 40);
+    });
+
+    return grids;
+  }, [aggregatedData]);
+
+  // Update plot when metric selection changes (uses cached grid data)
+  useEffect(() => {
+    if (!interpolatedGrids) return;
+
+    const metric = zMetrics[currentMetric].key;
+    const gridData = interpolatedGrids[metric];
 
     const trace = {
       type: 'surface',
@@ -258,7 +280,7 @@ const SurfacePlotExtremeShape = () => {
           gridcolor: 'lightgray' 
         },
 
-        camera: cameraState
+        camera: cameraStateRef.current
       },
       height: 600,
       margin: { l: 0, r: 0, b: 0, t: 80 }
@@ -268,7 +290,7 @@ const SurfacePlotExtremeShape = () => {
     setPlotData([trace]);
     setPlotLayout(layout);
     setIsPlotReady(true);
-  }, [data, currentMetric, xShapeRangeIndex, zMetrics]);
+  }, [interpolatedGrids, currentMetric]);
 
   if (loading) {
     return (
@@ -358,7 +380,7 @@ const SurfacePlotExtremeShape = () => {
           onRelayout={(event: any) => {
             // Capture camera position changes when user rotates the plot
             if (event['scene.camera']) {
-              setCameraState(event['scene.camera']);
+              cameraStateRef.current = event['scene.camera'];
             }
           }}
         />
