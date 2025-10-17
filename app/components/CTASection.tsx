@@ -75,7 +75,7 @@ export default function CTASection() {
         <div className="relative w-full h-full">
           <Image
             src="/images/compass.webp"
-            alt="Race Car Tuning"
+            alt="Compass"
             fill
             className="object-cover"
             sizes="100vw"

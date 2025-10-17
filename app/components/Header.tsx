@@ -70,13 +70,13 @@ const Header = () => {
   // Menu items
   const menuItems = useMemo(
     () => [
-      { label: "Scenarios", href: "#scenarios" },
+      { label: "Scenarios", href: "scenarios" },
       { label: "Research", href: "https://mostlyoptimal.com/research" },
-      { label: "Theory", href: "#theory" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Theory", href: "https://mostlyoptimal.com/theory" },
+      { label: "FAQ", href: "faq" },
       { label: "Getting Started", href: "https://mostlyoptimal.com/tutorial" },
-      { label: "About", href: "#about" },
-      { label: "Contact", href: "#contact" },
+      { label: "About", href: "about" },
+      { label: "Contact", href: "contact" },
     ],
     []
   );
