@@ -61,10 +61,14 @@ export default function SeeItInActionSection() {
     >
       <div className="max-w-7xl mx-auto">
         <h2 
-          className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
+          className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-4"
         >
           See It in Action
         </h2>
+
+        <p className="text-deep-forest/70 text-center mb-16">
+          Click images to expand
+        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {diagrams.map((diagram, index) => (

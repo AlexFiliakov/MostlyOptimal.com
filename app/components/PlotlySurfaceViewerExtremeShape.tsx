@@ -3,6 +3,7 @@
 import Image from "next/image";
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import dynamic from 'next/dynamic';
+import { Matrix, inverse } from 'ml-matrix';
 
 // Create a factory function to use the full Plotly library
 const createPlotlyComponent = async () => {
@@ -83,12 +84,13 @@ const SurfacePlotExtremeShape = () => {
     return rows;
   };
 
-  // Inverse distance weighting interpolation
+  // Thin Plate Spline interpolation for smooth surfaces
   const interpolateGrid = (points: any[], gridSize = 50) => {
     if (points.length === 0) return { x: [], y: [], z: [] };
 
     const xValues = points.map((p: any) => p.x);
     const yValues = points.map((p: any) => p.y);
+    const zValues = points.map((p: any) => p.z);
 
     const xMin = Math.min(...xValues);
     const xMax = Math.max(...xValues);
@@ -108,37 +110,115 @@ const SurfacePlotExtremeShape = () => {
       Math.pow(10, logYMin + (i / (gridSize - 1)) * (logYMax - logYMin))
     );
 
-    const zi: number[][] = [];
+    // Transform points to log space for better interpolation with log-scaled axes
+    const logPoints = points.map(p => ({
+      x: Math.log10(p.x),
+      y: Math.log10(p.y),
+      z: p.z
+    }));
 
-    for (let i = 0; i < gridSize; i++) {
+    // Build thin plate spline system
+    const n = logPoints.length;
+    
+    // Radial basis function for thin plate spline: r^2 * log(r)
+    const rbf = (r: number) => {
+      if (r < 1e-10) return 0;
+      return r * r * Math.log(r);
+    };
+
+    // Build the coefficient matrix L
+    const L: number[][] = [];
+    for (let i = 0; i < n; i++) {
       const row: number[] = [];
-      for (let j = 0; j < gridSize; j++) {
-        const x = xi[i];
-        const y = yi[j];
-        
-        // Inverse distance weighting interpolation in log space
-        let weightSum = 0;
-        let valueSum = 0;
-        const power = 2;
-        const epsilon = 1e-10;
-
-        for (let k = 0; k < points.length; k++) {
-          // Calculate distance in log space for better interpolation with log-scaled axes
-          const dx = Math.log10(x) - Math.log10(points[k].x);
-          const dy = Math.log10(y) - Math.log10(points[k].y);
-          const distance = Math.sqrt(dx * dx + dy * dy) + epsilon;
-          const weight = 1 / Math.pow(distance, power);
-          
-          weightSum += weight;
-          valueSum += weight * points[k].z;
-        }
-
-        row.push(valueSum / weightSum);
+      for (let j = 0; j < n; j++) {
+        const dx = logPoints[i].x - logPoints[j].x;
+        const dy = logPoints[i].y - logPoints[j].y;
+        const r = Math.sqrt(dx * dx + dy * dy);
+        row.push(rbf(r));
       }
-      zi.push(row);
+      // Add polynomial terms: 1, x, y
+      row.push(1, logPoints[i].x, logPoints[i].y);
+      L.push(row);
     }
 
-    return { x: xi, y: yi, z: zi };
+    // Add polynomial constraint rows
+    for (let i = 0; i < 3; i++) {
+      const row: number[] = [];
+      for (let j = 0; j < n; j++) {
+        if (i === 0) row.push(1);
+        else if (i === 1) row.push(logPoints[j].x);
+        else row.push(logPoints[j].y);
+      }
+      row.push(0, 0, 0);
+      L.push(row);
+    }
+
+    // Build right-hand side vector
+    const b = [...zValues, 0, 0, 0];
+
+    try {
+      // Solve the system using matrix inversion
+      const LMatrix = new Matrix(L);
+      const bMatrix = Matrix.columnVector(b);
+      const weights = inverse(LMatrix).mmul(bMatrix).to1DArray();
+
+      // Interpolate on the grid
+      const zi: number[][] = [];
+      for (let i = 0; i < gridSize; i++) {
+        const row: number[] = [];
+        for (let j = 0; j < gridSize; j++) {
+          const logX = Math.log10(xi[i]);
+          const logY = Math.log10(yi[j]);
+          
+          let z = 0;
+          // Apply radial basis functions
+          for (let k = 0; k < n; k++) {
+            const dx = logX - logPoints[k].x;
+            const dy = logY - logPoints[k].y;
+            const r = Math.sqrt(dx * dx + dy * dy);
+            z += weights[k] * rbf(r);
+          }
+          // Add polynomial terms
+          z += weights[n] + weights[n + 1] * logX + weights[n + 2] * logY;
+          
+          row.push(z);
+        }
+        zi.push(row);
+      }
+
+      return { x: xi, y: yi, z: zi };
+    } catch (error) {
+      console.error('Thin plate spline interpolation failed, falling back to simple interpolation:', error);
+      
+      // Fallback to a simpler interpolation if TPS fails
+      const zi: number[][] = [];
+      for (let i = 0; i < gridSize; i++) {
+        const row: number[] = [];
+        for (let j = 0; j < gridSize; j++) {
+          const logX = Math.log10(xi[i]);
+          const logY = Math.log10(yi[j]);
+          
+          // Simple inverse distance weighting as fallback
+          let weightSum = 0;
+          let valueSum = 0;
+          
+          for (let k = 0; k < logPoints.length; k++) {
+            const dx = logX - logPoints[k].x;
+            const dy = logY - logPoints[k].y;
+            const distance = Math.sqrt(dx * dx + dy * dy) + 1e-10;
+            const weight = 1 / (distance * distance * distance * distance);
+            
+            weightSum += weight;
+            valueSum += weight * logPoints[k].z;
+          }
+          
+          row.push(valueSum / weightSum);
+        }
+        zi.push(row);
+      }
+      
+      return { x: xi, y: yi, z: zi };
+    }
   };
 
   // Memoize filtered and aggregated data - only recalculate when xShapeRangeIndex changes
