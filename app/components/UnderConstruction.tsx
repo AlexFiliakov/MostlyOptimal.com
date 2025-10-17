@@ -119,6 +119,40 @@ export default function UnderConstruction() {
             Check back soon or bookmark this page to see our progress.
           </p>
         </div>
+        <div className="text-xl md:text-2xl mt-6">
+          <p className="text-gray-700 leading-relaxed mt-6">
+            Meanwhile, take a look the working pages on our site below:
+          </p>
+          <ul className="mt-4 space-y-2 max-w-md mx-auto text-left pl-36 list-[circle] list-inside">
+            <li>
+              <a
+                key="research-link"
+                href="https://mostlyoptimal.com/research"
+                className="text-deep-forest hover:text-electric-teal transition-colors duration-200 relative group font-medium"
+              >
+                Research
+              </a>
+            </li>
+            <li>
+              <a
+                key="theory-link"
+                href="https://mostlyoptimal.com/theory"
+                className="text-deep-forest hover:text-electric-teal transition-colors duration-200 relative group font-medium"
+              >
+                Foundations
+              </a>
+            </li>
+            <li>
+              <a
+                key="getting-started-link"
+                href="https://mostlyoptimal.com/tutorial"
+                className="text-deep-forest hover:text-electric-teal transition-colors duration-200 relative group font-medium"
+              >
+                Quick Start Guide
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   );
