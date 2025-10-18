@@ -414,3 +414,4 @@ nul
 
 # Images
 public/images/xcf/
+/.env.local
