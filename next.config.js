@@ -7,7 +7,7 @@ const nextConfig = {
     // formats not needed when unoptimized is true
     // Next.js automatically supports .gif, .webp, .png, .jpg, .ico, etc.
   },
-  trailingSlash: false,
+  trailingSlash: true,
   skipTrailingSlashRedirect: false,
   
   // Optimize build for Cloudflare Pages memory limits
