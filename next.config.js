@@ -6,7 +6,7 @@ const nextConfig = {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
   },
-  trailingSlash: true,
+  trailingSlash: false,
   skipTrailingSlashRedirect: false,
   
   // Optimize build for Cloudflare Pages memory limits
