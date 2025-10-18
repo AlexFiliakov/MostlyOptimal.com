@@ -1,4 +1,4 @@
 #!/bin/bash
 # Build script for Cloudflare Pages
-npm run build
-# The output directory is already set in next.config.js as './out'
+npx @opennextjs/cloudflare build
+# OpenNext will handle the Next.js build and output
