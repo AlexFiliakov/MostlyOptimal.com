@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  trailingSlash: true,
+  trailingSlash: false,
   
   // Optimize build for Cloudflare Pages memory limits
   experimental: {
