@@ -4,7 +4,8 @@ const nextConfig = {
   // output: 'export', // Removed - incompatible with Server Actions
   images: {
     unoptimized: true,
-    formats: ['image/webp', 'image/avif'],
+    // formats not needed when unoptimized is true
+    // Next.js automatically supports .gif, .webp, .png, .jpg, .ico, etc.
   },
   trailingSlash: false,
   skipTrailingSlashRedirect: false,
