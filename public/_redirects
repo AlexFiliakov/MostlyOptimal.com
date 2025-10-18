@@ -1,6 +1,3 @@
-# Remove trailing slashes - redirect to non-trailing slash URLs
-/contact/ /contact 301
-/scenarios/ /scenarios 301
-/faq/ /faq 301
-/about/ /about 301
-/plotly_surface_extreme_shape/ /plotly_surface_extreme_shape 301
+# CloudFlare Pages redirects
+# Note: html_handling = "drop-trailing-slash" in wrangler.toml handles trailing slashes automatically
+# The OpenNext worker handles all routing, so explicit redirects are not needed
