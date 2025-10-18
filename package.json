@@ -8,12 +8,12 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "npx @opennextjs/cloudflare",
+    "build": "npx @opennextjs/cloudflare build",
     "start": "next start",
     "lint": "next lint",
-    "build:cf": "npx @opennextjs/cloudflare",
-    "preview:cf": "wrangler dev",
-    "deploy": "npm run build && wrangler deploy",
+    "build:cf": "npx @opennextjs/cloudflare build",
+    "preview:cf": "npx @opennextjs/cloudflare preview",
+    "deploy": "npm run build && npx @opennextjs/cloudflare deploy",
     "deploy:cf": "npm run build && wrangler pages deploy",
     "deploy:production": "npm run build && wrangler pages deploy --branch=main",
     "pages:deploy": "npm run build && wrangler pages deploy"
