@@ -1,6 +1,6 @@
-# Remove trailing slashes (redirect to non-trailing slash version)
-/contact/ /contact 301
-/scenarios/ /scenarios 301
-/faq/ /faq 301
-/about/ /about 301
-/plotly_surface_extreme_shape/ /plotly_surface_extreme_shape 301
+# Add trailing slashes (redirect to trailing slash version)
+/contact /contact/ 301
+/scenarios /scenarios/ 301
+/faq /faq/ 301
+/about /about/ 301
+/plotly_surface_extreme_shape /plotly_surface_extreme_shape/ 301

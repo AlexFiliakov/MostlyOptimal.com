@@ -4,8 +4,10 @@ const nextConfig = {
   // output: 'export', // Removed - incompatible with Server Actions
   images: {
     unoptimized: true,
+    formats: ['image/webp', 'image/avif'],
   },
-  trailingSlash: false,
+  trailingSlash: true,
+  skipTrailingSlashRedirect: false,
   
   // Optimize build for Cloudflare Pages memory limits
   experimental: {
