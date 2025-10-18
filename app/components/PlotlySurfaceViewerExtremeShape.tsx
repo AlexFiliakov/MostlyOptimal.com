@@ -5,11 +5,11 @@ import React, { useState, useEffect, useMemo, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import { Matrix, inverse } from 'ml-matrix';
 
-// Create a factory function to use the full Plotly library
+// Create a factory function to use our custom Plotly library
 const createPlotlyComponent = async () => {
-  const Plotly = await import('plotly.js-dist-min');
+  const Plotly = await import('@/lib/plotly-custom');
   const createPlotlyComponent = await import('react-plotly.js/factory');
-  return createPlotlyComponent.default(Plotly);
+  return createPlotlyComponent.default(Plotly.default);
 };
 
 // Dynamically import Plotly with full library for 3D support
