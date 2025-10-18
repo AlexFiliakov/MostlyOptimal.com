@@ -42,7 +42,7 @@ export default function FeaturesSection() {
         "Comprehensive framework for managing multiple simulation scenarios, parameter sweeps, and what-if analyses under different market conditions.",
     },
     {
-      title: "Strategy Backtesting & Walk-Forward Validation",
+      title: "Strategy Backtesting & Walk‑Forward Validation",
       description:
         "Robust backtesting framework that tests insurance strategies against historical and simulated data using walk-forward validation techniques.",
     },
