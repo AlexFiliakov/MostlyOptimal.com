@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false, // Temporarily disabled due to Turnstile double-render issue
   output: 'export',
   images: {
     unoptimized: true,
