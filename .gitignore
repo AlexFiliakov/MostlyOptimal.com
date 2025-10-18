@@ -409,6 +409,7 @@ FodyWeavers.xsd
 
 # Next.js build output
 out/
+.open-next/
 
 nul
 

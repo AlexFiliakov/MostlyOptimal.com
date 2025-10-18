@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false, // Temporarily disabled due to Turnstile double-render issue
-  output: 'export',
+  // output: 'export', // Removed - incompatible with Server Actions
   images: {
     unoptimized: true,
   },

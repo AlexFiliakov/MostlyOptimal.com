@@ -8,15 +8,15 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx @opennextjs/cloudflare",
     "start": "next start",
     "lint": "next lint",
-    "build:cf": "next build",
-    "preview:cf": "wrangler pages dev ./out",
-    "deploy": "npm run build && wrangler deploy --assets ./out",
-    "deploy:cf": "wrangler pages deploy ./out --project-name=ergodicityadvantage",
-    "deploy:production": "npm run build && wrangler pages deploy ./out --project-name=ergodicityadvantage --branch=main",
-    "pages:deploy": "wrangler pages deploy ./out --project-name=ergodicityadvantage"
+    "build:cf": "npx @opennextjs/cloudflare",
+    "preview:cf": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:cf": "npm run build && wrangler pages deploy",
+    "deploy:production": "npm run build && wrangler pages deploy --branch=main",
+    "pages:deploy": "npm run build && wrangler pages deploy"
   },
   "repository": {
     "type": "git",
