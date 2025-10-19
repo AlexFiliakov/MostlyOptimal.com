@@ -415,4 +415,7 @@ nul
 
 # Images
 public/images/xcf/
+
+# Environment files
 /.env.local
+.dev.vars

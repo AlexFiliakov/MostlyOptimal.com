@@ -8,15 +8,13 @@
   },
   "scripts": {
     "dev": "next dev",
+    "dev:full": "npm run build && wrangler pages dev out",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:cf": "npx @opennextjs/cloudflare build",
-    "preview:cf": "npx @opennextjs/cloudflare preview",
-    "deploy": "npm run build && npx @opennextjs/cloudflare deploy",
+    "preview": "wrangler pages dev out",
     "deploy:cf": "npm run build && wrangler pages deploy",
-    "deploy:production": "npm run build && wrangler pages deploy --branch=main",
-    "pages:deploy": "npm run build && wrangler pages deploy"
+    "deploy:production": "npm run build && wrangler pages deploy --branch=main"
   },
   "repository": {
     "type": "git",

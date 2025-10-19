@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Ergodicity Advantage - See Your Future, Not the Average',
   description: 'Transform risk management from necessary cost to growth accelerator with a simulation engine built for how businesses actually succeed.',
   keywords: 'ergodicity, risk management, insurance optimization, business simulation, growth strategy',
+  metadataBase: new URL('https://mostlyoptimal.com'),
   openGraph: {
     title: 'Ergodicity Advantage',
     description: 'Transform risk management from necessary cost to growth accelerator',
