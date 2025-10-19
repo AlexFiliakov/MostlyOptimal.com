@@ -1,6 +1,5 @@
 name = "ergodicityadvantage-com"
 compatibility_date = "2025-01-01"
-html_handling = "force-trailing-slash"
 pages_build_output_dir = ".open-next/assets"
 
 # Required for Next.js server-side rendering
