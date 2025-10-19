@@ -419,3 +419,4 @@ public/images/xcf/
 # Environment files
 /.env.local
 .dev.vars
+.wrangler

@@ -1,4 +1,3 @@
 #!/bin/bash
-# Build script for Cloudflare Pages
-npx @opennextjs/cloudflare build
-# OpenNext will handle the Next.js build and output
+# Build script for Cloudflare Pages - Static Export
+npm run build
