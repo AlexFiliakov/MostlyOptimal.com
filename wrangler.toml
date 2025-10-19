@@ -5,6 +5,10 @@ pages_build_output_dir = ".open-next/assets"
 # Required for Next.js server-side rendering
 compatibility_flags = ["nodejs_compat"]
 
-# Environment variables for build
+# Runtime environment variables
 [vars]
+NEXT_PUBLIC_SITE_URL = "https://mostlyoptimal.com"
+
+# Build environment variables
+[build.env]
 NEXT_PUBLIC_SITE_URL = "https://mostlyoptimal.com"
