@@ -2,6 +2,9 @@ name = "ergodicityadvantage-com"
 compatibility_date = "2025-01-01"
 pages_build_output_dir = "out"
 
+# Compatibility flags for Cloudflare Workers
+compatibility_flags = ["nodejs_compat"]
+
 # Environment variables
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://mostlyoptimal.com"
