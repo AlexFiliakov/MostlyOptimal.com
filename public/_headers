@@ -18,3 +18,8 @@
 # General static assets
 /_next/static/*
   Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages - short cache for quick updates
+/*
+  Cache-Control: public, max-age=300, must-revalidate
+  X-Content-Type-Options: nosniff
