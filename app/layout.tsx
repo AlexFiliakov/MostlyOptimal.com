@@ -2,21 +2,18 @@ import type { Metadata } from 'next'
 import Script from 'next/script'
 import './globals.css'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mostlyoptimal.com'
-
 export const metadata: Metadata = {
   title: 'Ergodicity Advantage - See Your Future, Not the Average',
   description: 'Transform risk management from necessary cost to growth accelerator with a simulation engine built for how businesses actually succeed.',
   keywords: 'ergodicity, risk management, insurance optimization, business simulation, growth strategy',
-  metadataBase: new URL(siteUrl),
   openGraph: {
     title: 'Ergodicity Advantage',
     description: 'Transform risk management from necessary cost to growth accelerator',
-    url: siteUrl,
+    url: 'https://mostlyoptimal.com',
     siteName: 'Ergodicity Advantage',
     images: [
       {
-        url: `${siteUrl}/images/sailboat_ocean.webp`,
+        url: '/images/sailboat_ocean.webp',
         width: 1200,
         height: 630,
         alt: 'Ergodicity Advantage',
@@ -29,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ergodicity Advantage',
     description: 'Transform risk management from necessary cost to growth accelerator',
-    images: [`${siteUrl}/images/sailboat_ocean.webp`],
+    images: ['/images/sailboat_ocean.webp'],
   },
 }
 

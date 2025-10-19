@@ -1,10 +1,7 @@
 name = "ergodicityadvantage-com"
 compatibility_date = "2025-01-01"
-pages_build_output_dir = ".open-next/assets"
+pages_build_output_dir = "out"
 
-# Required for Next.js server-side rendering
-compatibility_flags = ["nodejs_compat"]
-
-# Environment variables (available at runtime and build time)
+# Environment variables
 [vars]
 NEXT_PUBLIC_SITE_URL = "https://mostlyoptimal.com"
