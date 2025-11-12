@@ -6,7 +6,7 @@ export default function UnderConstruction() {
   const [targetDate] = useState(() => {
     // November 9th, 2025 at 12:00:00 AM EST (UTC-5)
     // Setting as UTC time: 5:00 AM UTC = 12:00 AM EST
-    return new Date('2025-11-09T05:00:00Z');
+    return new Date('2025-11-19T05:00:00Z');
   });
 
   const [timeLeft, setTimeLeft] = useState({
