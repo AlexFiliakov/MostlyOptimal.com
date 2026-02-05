@@ -73,7 +73,7 @@ const Header = () => {
       { label: "Applications", href: "https://applications.mostlyoptimal.com/" },
       { label: "Research", href: "https://mostlyoptimal.com/research/" },
       { label: "Foundations", href: "https://mostlyoptimal.com/theory/" },
-      { label: "FAQ", href: "/faq/" },
+      { label: "FAQ", href: "/faq" },
       { label: "Quick Start", href: "https://mostlyoptimal.com/tutorial/" },
       { label: "About", href: "/about/" },
       { label: "Contact", href: "/contact/" },
