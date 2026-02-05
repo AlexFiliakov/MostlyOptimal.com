@@ -97,8 +97,8 @@ const Header = () => {
         className="flex items-center space-x-3 cursor-pointer hover:opacity-80 transition-opacity duration-200"
       >
         <div className="font-bold font-display text-deep-forest text-2xl">
-          <span className="text-warm-gold">Ergodicity</span>
-          <span className="text-deep-forest"> Advantage</span>
+          <span className="text-warm-gold">Mostly</span>
+          <span className="text-deep-forest"> Optimal</span>
         </div>
       </a>
     ),

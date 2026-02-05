@@ -17,7 +17,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-xl md:text-2xl text-deep-forest/80 mb-12 max-w-3xl mx-auto">
-            Have questions about how Ergodicity Advantage can transform your risk management strategy? I'd love to hear from you.
+            Have questions about how Mostly Optimal can transform your risk management strategy? I'd love to hear from you.
           </p>
         </div>
         

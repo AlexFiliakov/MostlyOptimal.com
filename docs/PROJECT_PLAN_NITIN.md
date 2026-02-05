@@ -1,4 +1,4 @@
-# Ergodicity Advantage Landing Page Approach Document
+# Mostly Optimal Landing Page Approach Document
 
 ## Website Audience
 

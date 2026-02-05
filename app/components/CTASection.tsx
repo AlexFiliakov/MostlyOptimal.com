@@ -96,7 +96,7 @@ export default function CTASection() {
           className="text-xl text-deep-forest/80 mb-12 max-w-2xl mx-auto"
         >
           For corporate leaders ready to move beyond traditional actuarial
-          approaches, the Ergodicity Advantage offers a scientifically rigorous
+          approaches, the Mostly Optimal framework offers a scientifically rigorous
           yet intuitively accessible path forward.
         </p>
 

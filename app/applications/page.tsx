@@ -4,7 +4,7 @@ import UnderConstruction from "../components/UnderConstruction";
 import Footer from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: 'Applications - Ergodicity Advantage - See Your Future, Not the Average',
+  title: 'Applications - Mostly Optimal - See Your Future, Not the Average',
 };
 
 export default function Home() {

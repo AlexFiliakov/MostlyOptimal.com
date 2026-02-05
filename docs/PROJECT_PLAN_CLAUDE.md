@@ -1,4 +1,4 @@
-# Ergodicity Advantage Landing Page Approach Document
+# Mostly Optimal Landing Page Approach Document
 
 ## Website Audience
 
@@ -134,13 +134,13 @@ Transform risk management from necessary cost to growth accelerator with a simul
 - Cursor changes to indicate interactivity
 - Loading states that reinforce the "calculation" theme
 
-This approach creates a sophisticated yet approachable presence that positions Ergodicity Advantage as both innovative and trustworthy—exactly what CFOs and Risk Managers need to feel confident in a paradigm shift.
+This approach creates a sophisticated yet approachable presence that positions Mostly Optimal as both innovative and trustworthy—exactly what CFOs and Risk Managers need to feel confident in a paradigm shift.
 
 ## Content Ideas
 
 "Your company's journey differs from the industry average."
-The Ergodicity Advantage project transforms risk management from defense to growth strategy.
-The Ergodicity Advantage project represents a fundamental shift in how organizations understand and manage risk.
+The Mostly Optimal project transforms risk management from defense to growth strategy.
+The Mostly Optimal project represents a fundamental shift in how organizations understand and manage risk.
 What happens to an individual company over time differs dramatically from what happens to the average across many companies.
 This ground-up simulation engine enables corporate leaders to make decisions based on their actual trajectory, rather than relying on theoretical averages.
 Shift from population averages to individual business paths.
@@ -170,4 +170,4 @@ Innovative advantages that outperform traditional models.
 The first rule of risk-taking: preserve your ability to take tomorrow’s risks. Operations must never impair core capital.
 Build your corporate strategy from first principles that recognize the non-ergodic nature of real business environments, designing tailored solutions rather than copying your competitors.
 Codify your business dynamics to assess real long-term risk exposures.
-For corporate leaders ready to move beyond traditional actuarial approaches, the Ergodicity Advantage offers a scientifically rigorous yet intuitively accessible path forward.
+For corporate leaders ready to move beyond traditional actuarial approaches, the Mostly Optimal offers a scientifically rigorous yet intuitively accessible path forward.
