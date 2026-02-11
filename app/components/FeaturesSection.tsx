@@ -101,12 +101,11 @@ export default function FeaturesSection() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="relative py-24 px-6 bg-cover bg-center"
+      className="relative py-24 px-6 bg-[length:100%_auto] bg-top bg-repeat-y md:bg-cover md:bg-center md:bg-no-repeat md:bg-fixed"
       style={{
         backgroundImage: "url('/images/highway.webp')",
-        backgroundAttachment: "fixed"
       }}
     >
       <div className="max-w-7xl mx-auto">
