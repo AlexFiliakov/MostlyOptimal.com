@@ -58,19 +58,19 @@ export default function HeroSection() {
           ref={headingRef}
           className="text-5xl md:text-7xl font-display font-bold text-deep-forest mb-6"
         >
-          Your Future, Not The Average
+          Your Company&apos;s Real Risk, Not the Industry Average
         </h1>
 
         <p 
           ref={paragraphRef}
           className="text-xl md:text-2xl text-deep-forest/80 mb-12 max-w-3xl mx-auto"
         >
-          Transform risk management from necessary cost to growth accelerator
-          with a simulation engine built for how businesses actually succeed.
+          What if your insurance program actually accelerated growth
+          instead of just limiting downside?
         </p>
 
         <div ref={buttonContainerRef} className="flex flex-col items-center gap-8 mb-16">
-          <CustomButton onClick={() => document.getElementById('card-1')?.scrollIntoView({ behavior: 'smooth' })}>Discover Your Path</CustomButton>
+          <CustomButton onClick={() => document.getElementById('card-1')?.scrollIntoView({ behavior: 'smooth' })}>See How It Works</CustomButton>
           
           <div 
             ref={scrollIndicatorRef}

@@ -1,40 +1,4 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 export default function UnderConstruction() {
-  const [targetDate] = useState(() => {
-    // November 9th, 2025 at 12:00:00 AM EST (UTC-5)
-    // Setting as UTC time: 5:00 AM UTC = 12:00 AM EST
-    return new Date('2025-12-31T05:00:00Z');
-  });
-
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const difference = targetDate.getTime() - new Date().getTime();
-      
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
-      }
-    };
-
-    calculateTimeLeft();
-    const timer = setInterval(calculateTimeLeft, 1000);
-
-    return () => clearInterval(timer);
-  }, [targetDate]);
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center px-4 pt-24 pb-12">
@@ -85,31 +49,11 @@ export default function UnderConstruction() {
           </span>
         </div>
 
-        {/* Countdown Timer */}
+        {/* Coming Soon */}
         <div className="mb-12">
-          <p className="text-lg text-gray-700 mb-6 font-medium">
-            Expected Launch
+          <p className="text-2xl text-gray-700 font-medium">
+            Coming Soon
           </p>
-          <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
-            {[
-              { label: "Days", value: timeLeft.days },
-              { label: "Hours", value: timeLeft.hours },
-              { label: "Minutes", value: timeLeft.minutes },
-              { label: "Seconds", value: timeLeft.seconds },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100"
-              >
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-                  {String(item.value).padStart(2, "0")}
-                </div>
-                <div className="text-sm md:text-base text-gray-600 font-medium">
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Footer Message */}
@@ -121,7 +65,7 @@ export default function UnderConstruction() {
         </div>
         <div className="text-xl md:text-2xl mt-6">
           <p className="text-gray-700 leading-relaxed mt-6">
-            Meanwhile, take a look the working pages on our site below:
+            Meanwhile, take a look at the working pages on our site below:
           </p>
           <ul className="mt-4 space-y-2 max-w-md mx-auto text-left pl-36 list-[circle] list-inside">
             <li>
@@ -139,7 +83,7 @@ export default function UnderConstruction() {
                 href="https://mostlyoptimal.com/theory"
                 className="text-deep-forest hover:text-electric-teal transition-colors duration-200 relative group font-medium"
               >
-                Foundations
+                How It Works
               </a>
             </li>
             <li>

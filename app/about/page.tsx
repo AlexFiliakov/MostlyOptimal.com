@@ -15,50 +15,32 @@ export default function AboutPage() {
 
       <section className="max-w-3xl mx-auto px-6 py-16">
         <h1 className="text-5xl md:text-7xl font-display font-bold text-deep-forest mb-12 text-center">
-          About
+          The Story Behind Mostly Optimal
         </h1>
 
         <div className="font-body text-lg leading-relaxed text-deep-forest/90 space-y-6">
           <p>
-            I became interested in a branch of economics focused on why individual outcomes diverge from statistical averages in the summer of 2025,
-            but the question at its core (why do individual outcomes so often
-            diverge from statistical expectations?) had quietly shaped my career
-            for years.
+            After 11 years as an actuary working across life insurance, analytics,
+            commercial casualty, and brokerage, I kept seeing the same gap: the
+            analytical tools available to insurance buyers are decades behind what
+            carriers use internally. So I built the tool I wished existed.
           </p>
 
           <p>
-            Over eleven years as an actuary, I&apos;ve had the good fortune of
-            seeing insurance from nearly every angle. I started in Life Insurance
-            and Annuities at a Fortune 100 company, building dynamic capital
-            models to understand how management decisions ripple through company
-            financials, using models built around the idea that a single
-            company&apos;s path through time matters more than the industry average. At
-            Verisk Analytics, I spent close to four years modernizing the
-            analytical platforms behind the next generation of actuarial
-            products. My pricing work in Commercial Casualty has spanned
-            Workers&apos; Compensation, General Liability, Product Liability, and
-            Commercial Auto. And in my current role at a commercial insurance
-            broker, I optimize insurance programs for dozens of clients with
-            millions of dollars in combined premium.
+            My career has spanned the insurance industry: from building dynamic
+            capital models at a Fortune 100 carrier, to modernizing analytical
+            platforms at Verisk, to optimizing multi-million-dollar insurance
+            programs as a commercial broker. Each role reinforced the same
+            observation: what happens to a single company over time looks nothing
+            like the industry average.
           </p>
 
           <p>
-            Each of these roles reinforced a simple observation: what happens to
-            a single company over time looks nothing like what happens to the
-            average across many companies. When I encountered Ole Peters&apos;
-            research on how individual outcomes differ from statistical averages, it gave that observation a rigorous
-            mathematical foundation and clarified my thinking about insurance
-            decisions.
-          </p>
-
-          <p>
-            What started as a quick Excel model (&ldquo;can I derive rational
-            insurance prices by modeling what actually happens to individual companies over time?&rdquo;) quickly outgrew the
-            spreadsheet. I moved to Python, built a simulation framework, wrote a
-            research paper, and kept going. After hundreds of hours of
-            development, Mostly Optimal emerged: an open-source engine for
-            modeling how individual businesses actually grow, fail, and navigate
-            uncertainty over time.
+            When I discovered the mathematical framework behind this observation,
+            everything clicked. A quick Excel prototype turned into a Python
+            simulation engine, then a research paper, then the open-source
+            platform you see here. Hundreds of hours later, Mostly Optimal is
+            ready for the community to use, challenge, and build on.
           </p>
         </div>
 
@@ -68,12 +50,10 @@ export default function AboutPage() {
           Vision
         </h2>
         <p className="font-body text-lg leading-relaxed text-deep-forest/90">
-          My hope is that this framework nudges the insurance industry toward
-          thinking about risk differently. Not as a line item to minimize, but as
-          a dynamic that, when properly understood, can accelerate long-term
-          growth. If Mostly Optimal serves as a useful starting point for the
-          community to build on, refine, and challenge, it will have more than
-          done its job.
+          The insurance industry treats risk as a cost to minimize. It should
+          be a lever for growth. This framework is my attempt to prove
+          that and give to every insurance buyer the analytical tools that
+          carriers have kept to themselves.
         </p>
 
         <hr className="my-12 border-warm-gray" />

@@ -4,12 +4,12 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Mostly Optimal - See Your Future, Not the Average',
-  description: 'Transform risk management from necessary cost to growth accelerator with a simulation engine built for how businesses actually succeed.',
-  keywords: 'risk management, insurance optimization, business simulation, growth strategy, long-term value, survivability analysis',
+  description: 'Optimize your commercial insurance program with a simulation engine that models your company\'s actual risk, not industry averages. Open-source framework for deductible, limit, and coverage analysis.',
+  keywords: 'risk management, insurance optimization, business simulation, growth strategy, long-term value, survivability analysis, commercial insurance, deductible optimization, insurance limit analysis, Monte Carlo simulation, actuarial analysis, insurance program design, risk modeling, corporate insurance, loss modeling, insurance analytics',
   metadataBase: new URL('https://mostlyoptimal.com'),
   openGraph: {
     title: 'Mostly Optimal',
-    description: 'Transform risk management from necessary cost to growth accelerator',
+    description: 'Optimize your commercial insurance program with a simulation engine that models your company\'s actual risk, not industry averages.',
     url: 'https://mostlyoptimal.com',
     siteName: 'Mostly Optimal',
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Mostly Optimal',
-    description: 'Transform risk management from necessary cost to growth accelerator',
+    description: 'Optimize your commercial insurance program with a simulation engine that models your company\'s actual risk, not industry averages.',
     images: ['/images/sailboat_ocean.webp'],
   },
 }

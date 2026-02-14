@@ -19,15 +19,13 @@ export default function ErgodicitySection() {
 
         <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-6 xl:px-8 py-3 xl:py-4">
           <h2 className="text-3xl xl:text-4xl font-display font-bold text-white mb-4 xl:mb-6">
-            Average outcomes don't apply to individual journeys
+            A loss that&apos;s &ldquo;manageable on average&rdquo; can end your company in practice
           </h2>
           <p className="text-base xl:text-lg text-white/80 leading-relaxed">
-            Traditional risk management commits a fundamental error: it assumes
-            that the average outcome across many parallel scenarios applies to
-            any single company's journey through time. This is why smart
-            businesses turn down bets that look profitable on paper, and why
-            insurance creates real value even when it costs more than the
-            &ldquo;expected&rdquo; loss.
+            Traditional risk models average across hundreds of companies.
+            But your company doesn&apos;t get hundreds of tries. You get one shot,
+            playing out year after year. A loss that looks small &ldquo;on
+            average&rdquo; can compound into a crisis for a single business.
           </p>
         </div>
       </section>
@@ -52,11 +50,10 @@ export default function ErgodicitySection() {
             Why Averages Are Misleading
           </h2>
           <p className="text-base xl:text-lg text-white/80 leading-relaxed">
-            Traditional risk models average across hundreds of companies, but
-            your company only gets one path through time. A loss that looks
-            manageable &ldquo;on average&rdquo; can be catastrophic for a single business.
-            That gap between what&apos;s true for the industry and what&apos;s true for
-            you is exactly what conventional analysis misses.
+            Your industry&apos;s average loss ratio might be 60%. But if your
+            worst year wipes out three years of profit, that average means
+            nothing. Traditional models can&apos;t see this danger because they
+            blur your company into the crowd.
           </p>
         </div>
       </section>
@@ -78,14 +75,13 @@ export default function ErgodicitySection() {
 
         <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-6 xl:px-8 py-3 xl:py-4">
           <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-display font-bold text-white mb-4 xl:mb-6">
-            First principles. Real trajectories. Actual growth.
+            A simulation engine built around one company: yours
           </h2>
           <p className="text-base xl:text-lg text-white leading-relaxed">
-            Unlike conventional simulations that treat every scenario as
-            recoverable, our engine accounts for the losses you can&apos;t come
-            back from. The ones that shut down future opportunities entirely.
-            Build your strategy around how your business actually works, not
-            theoretical assumptions about unlimited resilience.
+            Most simulation tools assume your company bounces back from
+            every loss. In reality, some losses permanently shrink what your
+            business can do next. Mostly Optimal models that reality so your
+            insurance strategy protects the growth you&apos;ve already built.
           </p>
         </div>
       </section>

@@ -89,15 +89,16 @@ export default function CTASection() {
           ref={headingRef}
           className="text-4xl md:text-5xl font-display font-bold text-deep-forest mb-6"
         >
-          Ready to See Your True Path?
+          Ready to Run Your Own Analysis?
         </h2>
         <p
           ref={textRef}
           className="text-xl text-deep-forest/80 mb-12 max-w-2xl mx-auto"
         >
-          For corporate leaders ready to move beyond traditional actuarial
-          approaches, the Mostly Optimal framework offers a scientifically rigorous
-          yet intuitively accessible path forward.
+          Assess your current insurance structure and discover how an optimized
+          program can impact your bottom line.
+          <br />
+          Open source, no sales pitch. Just superior analysis.
         </p>
 
         <div
@@ -113,7 +114,7 @@ export default function CTASection() {
             href="https://mostlyoptimal.com/research"
             className="inline-block bg-transparent border-2 border-sage-green text-sage-green hover:bg-sage-green hover:text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
           > */}
-          <CustomButton onClick={() => window.open("https://mostlyoptimal.com/research", "_blank")}>Research Paper</CustomButton>
+          <CustomButton onClick={() => window.open("https://mostlyoptimal.com/research", "_blank")}>Read the Research</CustomButton>
         </div>
       </div>
     </section>

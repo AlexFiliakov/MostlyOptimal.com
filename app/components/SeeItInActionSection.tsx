@@ -32,12 +32,12 @@ export default function SeeItInActionSection() {
       alt: "Insurance limit optimization example"
     },
     {
-      title: "Explore which assumptions matter most for your coverage strategy",
+      title: "Explore which variables matter most for your coverage strategy",
       image: "/images/example_configurations_1.gif",
       alt: "Insurance configuration analysis example"
     },
     {
-      title: "Identify strategies that stay optimal despite uncertain loss patterns",
+      title: "Identify strategies that hold up even when loss patterns shift",
       image: "/images/example_extreme_shape_surface_plot_animation.gif",
       alt: "Surface plot showing optimal insurance strategies under various loss assumptions"
     }
@@ -67,7 +67,7 @@ export default function SeeItInActionSection() {
         </h2>
 
         <p className="text-deep-forest/70 text-center mb-16">
-          Click images to expand
+          Click any chart to explore interactively
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

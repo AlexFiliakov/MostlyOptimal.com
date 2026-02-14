@@ -17,7 +17,7 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-xl md:text-2xl text-deep-forest/80 mb-12 max-w-3xl mx-auto">
-            Have questions about how Mostly Optimal can transform your risk management strategy? I'd love to hear from you.
+            Whether you&apos;re exploring the framework, considering it for your organization, or just want to talk shop, drop me a line.
           </p>
         </div>
         

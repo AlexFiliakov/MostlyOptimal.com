@@ -29,32 +29,32 @@ export default function FeaturesSection() {
     {
       title: "Advanced Risk Metrics Suite",
       description:
-        "Industry-standard risk metrics quantify tail risk exposure and support data-driven insurance purchasing decisions with confidence intervals and bootstrap analysis.",
+        "Quantify your worst-case exposures with industry-standard risk metrics so you can make coverage decisions backed by hard numbers, not gut feel.",
     },
     {
       title: "Monte Carlo Simulation Engine",
       description:
-        "Model complex loss distributions and understand the full spectrum of potential outcomes with statistical confidence.",
+        "Run thousands of scenarios to see the full range of what could happen to your business, from best case to worst case and everything in between.",
     },
     {
       title: "Scenario Management & Sensitivity Analysis",
       description:
-        "Comprehensive framework for managing multiple simulation scenarios, parameter sweeps, and what-if analyses under different market conditions.",
+        "Ask \"what if?\" at scale. Test how your strategy performs across different loss patterns, market conditions, and business assumptions.",
     },
     {
       title: "Strategy Backtesting & Walk‑Forward Validation",
       description:
-        "Robust backtesting framework that tests insurance strategies against historical and simulated data using walk-forward validation techniques.",
+        "Test your strategy against history. See how today's approach would have performed in past years and stress-test it against future scenarios.",
     },
     {
       title: "Real-Time Business Constraints",
       description:
-        "Configurable business constraints including maximum risk tolerance, minimum ROE thresholds, leverage ratios, liquidity requirements, and regulatory compliance checks.",
+        "Analysis that respects your real business constraints, including risk tolerance, return targets, leverage limits, and liquidity needs.",
     },
     {
       title: "Executive Reporting & Visualization",
       description:
-        "Comprehensive reporting suite with interactive dashboards, Excel export capabilities, and publication-ready visualizations that translate complex analytics into actionable business insights.",
+        "Interactive dashboards and board-ready reports that make the analysis easy to share, defend, and act on. Export to Excel when you need to.",
     },
   ];
 
@@ -114,7 +114,7 @@ export default function FeaturesSection() {
             ref={headingRef}
             className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest"
           >
-            Application&nbsp;Features
+            What&apos;s Under the Hood
           </h2>
         </div>
 

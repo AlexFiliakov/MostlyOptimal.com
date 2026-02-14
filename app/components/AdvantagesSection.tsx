@@ -16,21 +16,21 @@ export default function AdvantagesSection() {
       icon: "",
       headline: "Your Unique Journey, Not the Industry Average",
       subtext:
-        "Traditional models tell you what happens to 1,000 companies on average. We show you what happens to YOUR company over time. Our ground-up simulation engine maps your company's specific path through compounding gains and losses, revealing opportunities and hazards invisible to conventional analysis.",
+        "Industry benchmarks tell you what happens to the average company. We simulate what happens to yours (year by year, decision by decision) so you can see risks and opportunities your current analysis can't.",
       image: "/images/snow_tracks_small.webp",
     },
     {
       icon: "",
       headline: "From Cost Center to Catalyst",
       subtext:
-        "Discover precisely how insurance accelerates sustainable growth rather than just transferring risk. Our diagnostics reveal the coverage levels that maximize your long-term value while protecting against business-ending events.",
+        "See exactly how the right coverage levels accelerate your growth, not just transfer your risk. Find the structures that maximize long-term value while guarding against the losses that could end the game.",
       image: "/images/solar_farm_sunrise_small.webp",
     },
     {
       icon: "",
       headline: "Built for Your Business",
       subtext:
-        "Every simulation incorporates your specific operations, capital position, and risk profile. Design win-win contracts, optimize retention levels, and make decisions based on your actual constraints, not on theoretical assumptions about infinite time or capital.",
+        "Every analysis begins with your actual financials, operations, and risk tolerance. Design coverage that suits both you and your carrier based on how your business really functions, rather than relying on textbook assumptions.",
       image: "/images/race_car_tuning_small.webp",
     },
   ];
@@ -81,7 +81,7 @@ export default function AdvantagesSection() {
           ref={headingRef}
           className="text-4xl md:text-5xl font-display font-bold text-center text-deep-forest mb-16"
         >
-          Three Ways We Transform Your Risk Strategy
+          What Changes When You Model Your Company, Not the Market
         </h2>
 
         <div className="grid md:grid-cols-3 gap-8">

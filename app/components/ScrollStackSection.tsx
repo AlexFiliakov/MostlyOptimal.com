@@ -33,7 +33,7 @@ export default function ScrollStackSection() {
       badgeTextColor: "text-white",
       title: "Advanced Analytics",
       description:
-        "Leverage sophisticated Monte Carlo simulations and optimization algorithms to model complex loss distributions and understand the full spectrum of potential outcomes with statistical confidence.",
+        "Model thousands of potential futures for your business to identify which risks genuinely threaten your growth and which ones can be safely retained.",
       color: "bg-[#e5e7e4]",
       image: "/images/example_limit_analysis_padded.webp",
     },
@@ -44,7 +44,7 @@ export default function ScrollStackSection() {
       badgeTextColor: "text-white",
       title: "Optimal Insurance Design",
       description:
-        "Design sophisticated multi-layer insurance programs with optimal attachment points, limits, and structures that maximize your company's long-term value and resilience.",
+        "Identify the appropriate deductibles, limits, and layers for your business, ensuring they are structured to maximize long-term value rather than simply minimizing this year's premium.",
       color: "bg-[#d4e3df]",
       image: "/images/lloyds_reflection.webp",
     },
@@ -55,7 +55,7 @@ export default function ScrollStackSection() {
       badgeTextColor: "text-deep-forest",
       title: "Measurable Impact",
       description:
-        "Track and validate your insurance strategy performance with comprehensive reporting, backtesting frameworks, and real-time business constraint monitoring for continuous improvement.",
+        "Know whether your coverage strategy is working with clear reporting, historical validation, and alerts when business conditions change.",
       color: "bg-[#aec6c1]",
       image: "/images/city_lightning.webp",
     },
@@ -140,7 +140,7 @@ export default function ScrollStackSection() {
               Built for How Business Actually Works
             </h2>
             <p ref={subtitleRef} className="text-lg xl:text-xl text-deep-forest/70 max-w-3xl mx-auto">
-              Transform your insurance strategy with four foundational pillars
+              From your financials to your optimal coverage structure in four steps.
             </p>
           </div>
 
