@@ -35,7 +35,7 @@ export default function ScrollStackSection() {
       description:
         "Model thousands of potential futures for your business to identify which risks genuinely threaten your growth and which ones can be safely retained.",
       color: "bg-[#e5e7e4]",
-      image: "/images/example_limit_analysis_padded.webp",
+      image: "/images/example_limit_analysis_for_stack.webp",
     },
     {
       id: 3,
