@@ -5,7 +5,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Mostly Optimal - See Your Future, Not the Average',
   description: 'Transform risk management from necessary cost to growth accelerator with a simulation engine built for how businesses actually succeed.',
-  keywords: 'ergodicity, risk management, insurance optimization, business simulation, growth strategy',
+  keywords: 'risk management, insurance optimization, business simulation, growth strategy, long-term value, survivability analysis',
   metadataBase: new URL('https://mostlyoptimal.com'),
   openGraph: {
     title: 'Mostly Optimal',

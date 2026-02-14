@@ -20,7 +20,7 @@ export default function AboutPage() {
 
         <div className="font-body text-lg leading-relaxed text-deep-forest/90 space-y-6">
           <p>
-            I became interested in ergodicity economics in the summer of 2025,
+            I became interested in a branch of economics focused on why individual outcomes diverge from statistical averages in the summer of 2025,
             but the question at its core (why do individual outcomes so often
             diverge from statistical expectations?) had quietly shaped my career
             for years.
@@ -31,8 +31,8 @@ export default function AboutPage() {
             seeing insurance from nearly every angle. I started in Life Insurance
             and Annuities at a Fortune 100 company, building dynamic capital
             models to understand how management decisions ripple through company
-            financials, using models based on precisely the principles of
-            ergodicity (though we did not use that terminology at the time). At
+            financials, using models built around the idea that a single
+            company&apos;s path through time matters more than the industry average. At
             Verisk Analytics, I spent close to four years modernizing the
             analytical platforms behind the next generation of actuarial
             products. My pricing work in Commercial Casualty has spanned
@@ -46,14 +46,14 @@ export default function AboutPage() {
             Each of these roles reinforced a simple observation: what happens to
             a single company over time looks nothing like what happens to the
             average across many companies. When I encountered Ole Peters&apos;
-            work on ergodicity economics, it gave that observation a rigorous
+            research on how individual outcomes differ from statistical averages, it gave that observation a rigorous
             mathematical foundation and clarified my thinking about insurance
             decisions.
           </p>
 
           <p>
             What started as a quick Excel model (&ldquo;can I derive rational
-            insurance prices under ergodic theory?&rdquo;) quickly outgrew the
+            insurance prices by modeling what actually happens to individual companies over time?&rdquo;) quickly outgrew the
             spreadsheet. I moved to Python, built a simulation framework, wrote a
             research paper, and kept going. After hundreds of hours of
             development, Mostly Optimal emerged: an open-source engine for

@@ -16,14 +16,14 @@ export default function AdvantagesSection() {
       icon: "",
       headline: "Your Unique Journey, Not the Industry Average",
       subtext:
-        "Traditional models tell you what happens to 1,000 companies on average. We show you what happens to YOUR company over time. Our ground-up simulation engine maps your specific trajectory through multiplicative wealth dynamics, revealing opportunities and hazards invisible to conventional analysis.",
+        "Traditional models tell you what happens to 1,000 companies on average. We show you what happens to YOUR company over time. Our ground-up simulation engine maps your company's specific path through compounding gains and losses, revealing opportunities and hazards invisible to conventional analysis.",
       image: "/images/snow_tracks_small.webp",
     },
     {
       icon: "",
       headline: "From Cost Center to Catalyst",
       subtext:
-        "Discover precisely how insurance accelerates sustainable growth rather than just transferring risk. Our real-time ergodicity diagnostics reveal the optimal insurance coverage levels that maximize your long-term wealth accumulation while protecting against business-ending events.",
+        "Discover precisely how insurance accelerates sustainable growth rather than just transferring risk. Our diagnostics reveal the coverage levels that maximize your long-term value while protecting against business-ending events.",
       image: "/images/solar_farm_sunrise_small.webp",
     },
     {

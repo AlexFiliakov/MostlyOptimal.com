@@ -14,7 +14,7 @@ export default function FeaturesSection() {
     {
       title: "Long-Term Business Optimization",
       description:
-        "Advanced optimization algorithms that maximize long-term company value through optimal insurance decisions, using time-average (ergodic) rather than ensemble approaches.",
+        "Advanced optimization algorithms that maximize long-term company value through optimal insurance decisions, based on your company's actual trajectory rather than industry-wide averages.",
     },
     {
       title: "Comprehensive Financial Statements",

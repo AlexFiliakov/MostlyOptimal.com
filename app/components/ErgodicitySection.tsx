@@ -24,10 +24,10 @@ export default function ErgodicitySection() {
           <p className="text-base xl:text-lg text-white/80 leading-relaxed">
             Traditional risk management commits a fundamental error: it assumes
             that the average outcome across many parallel scenarios applies to
-            any single company's journey through time. This distinction between
-            ensemble averages and time averages explains why businesses
-            rationally reject positive expected value bets and why insurance
-            creates value despite its mathematical cost.
+            any single company's journey through time. This is why smart
+            businesses turn down bets that look profitable on paper, and why
+            insurance creates real value even when it costs more than the
+            &ldquo;expected&rdquo; loss.
           </p>
         </div>
       </section>
@@ -49,15 +49,14 @@ export default function ErgodicitySection() {
 
         <div className="relative z-10 max-w-5xl mx-auto text-center bg-soft-silver/20 rounded-xl backdrop-blur-xl px-6 xl:px-8 py-3 xl:py-4">
           <h2 className="text-3xl xl:text-4xl font-display font-bold text-white mb-4 xl:mb-6">
-            Understanding Ergodicity
+            Why Averages Are Misleading
           </h2>
           <p className="text-base xl:text-lg text-white/80 leading-relaxed">
-            <b>Ergodicity</b> is the mathematical principle that distinguishes
-            between what happens to many companies on average versus what
-            happens to YOUR company over time. Non-ergodic systems (like real
-            businesses) can face ruin from events that look statistically
-            manageable, making traditional risk models dangerously misleading
-            for individual enterprises.
+            Traditional risk models average across hundreds of companies, but
+            your company only gets one path through time. A loss that looks
+            manageable &ldquo;on average&rdquo; can be catastrophic for a single business.
+            That gap between what&apos;s true for the industry and what&apos;s true for
+            you is exactly what conventional analysis misses.
           </p>
         </div>
       </section>
@@ -82,12 +81,11 @@ export default function ErgodicitySection() {
             First principles. Real trajectories. Actual growth.
           </h2>
           <p className="text-base xl:text-lg text-white leading-relaxed">
-            Unlike conventional Monte Carlo simulations, which assume all paths
-            are equally accessible, this engine recognizes that certain losses
-            create absorbing barriers (points of no return where future
-            opportunities vanish). Build your corporate strategy from first
-            principles that recognize the non-ergodic nature of real business
-            environments.
+            Unlike conventional simulations that treat every scenario as
+            recoverable, our engine accounts for the losses you can&apos;t come
+            back from. The ones that shut down future opportunities entirely.
+            Build your strategy around how your business actually works, not
+            theoretical assumptions about unlimited resilience.
           </p>
         </div>
       </section>

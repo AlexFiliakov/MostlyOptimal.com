@@ -20,9 +20,9 @@ export default function ScrollStackSection() {
       badge: "Foundation",
       badgeColor: "bg-sage-green",
       badgeTextColor: "text-white",
-      title: "Ergodic Framework",
+      title: "One Company. Yours.",
       description:
-        "Build your risk management strategy on the revolutionary ergodicity framework—maximizing long-term time-average growth rather than ensemble averages for sustainable business optimization.",
+        "Build your risk management strategy on what actually matters—your company's own growth trajectory over time, not industry-wide averages that mask the risks unique to your business.",
       color: "bg-white",
       image: "/images/tree_roots.webp",
     },
@@ -137,7 +137,7 @@ export default function ScrollStackSection() {
         <div className="w-full max-w-3xl xl:max-w-7xl mx-auto px-4 xl:px-6">
           <div className="my-4 xl:my-8 text-center">
             <h2 ref={headingRef} className="text-3xl md:text-4xl xl:text-5xl font-display font-bold text-deep-forest mb-2 xl:mb-4">
-              The Ergodicity Advantage
+              Built for How Business Actually Works
             </h2>
             <p ref={subtitleRef} className="text-lg xl:text-xl text-deep-forest/70 max-w-3xl mx-auto">
               Transform your insurance strategy with four foundational pillars
