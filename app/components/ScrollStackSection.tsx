@@ -22,7 +22,7 @@ export default function ScrollStackSection() {
       badgeTextColor: "text-white",
       title: "One Company. Yours.",
       description:
-        "Build your risk management strategy on what actually matters—your company's own growth trajectory over time, not industry-wide averages that mask the risks unique to your business.",
+        "Build your risk management strategy on what actually matters: your company's own growth trajectory over time, not industry-wide averages that mask the risks unique to your business.",
       color: "bg-white",
       image: "/images/tree_roots.webp",
     },
