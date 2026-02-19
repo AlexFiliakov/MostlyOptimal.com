@@ -23,7 +23,7 @@ export default function SeeItInActionSection() {
   const diagrams = [
     {
       title: "Find the deductible that balances cost and risk",
-      image: "/images/example_deductibles_1.png",
+      image: "/images/example_deductibles_2.gif",
       alt: "Insurance deductible optimization example"
     },
     {
